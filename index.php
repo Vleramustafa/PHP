@@ -1,30 +1,21 @@
 <?php
+try{
+  $pdo=new PDO("mysql:host=localhost; dbname=testdb",'root','');
 
-   $host='localhost';
-   $db='testdbase';
-   $user='root';
-   $pass='';
+//   $username='Vlere';
 
-   try{
-     $conn=new PDO("mysql:host=$host;dbname=$db",$user,$pass);
-    $sql="CREATE TABLE users(id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(30) NOT NULL ,
-    pass VARCHAR(50) NOT NULL )";
+//   $password=password_hash('mypassword',PASSWORD_DEFAULT);
 
-    $conn->exec($sql);
-    echo "Table created successfully";
+//   $sql="INSERT INTO users (username,pass) VALUE ('$username','$password')";
+$sql="ALTER TABLE products ADD email VARCHAR(255)";
 
-    //  $sql="CREATE DATABASE testdbase";
+  $pdo->exec($sql);
+
+  echo "New record created successfully";
 
 
-
-    //  $conn->exec($sql);
-
-    //  echo "Database is created";
-
-   }catch(Exception $e){
-    // echo "Database not created,something went wrong!";
-    echo "Error creating table: " . $e->getMessage();
-   }
+}catch(DOException $e){
+ echo $e->getMessage();
+}
 
 ?>
