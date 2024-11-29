@@ -1,40 +1,32 @@
-<?php
-
-$my_file=fopen('ds.txt','w');
-
-// fclose($my_file);
-
-
-// set the name of the file to be open
-// $my_filename='ds.txt';
-
-
-// // open the file in read mode/ for reading 
-// $my_file=fopen($my_filename,'r');
-
-// // get the size of the file
-// $my_size=filesize($my_filename);
-
-// // read the contents of the file into a variable
-// $my_filedate=fread($my_filename,$my_size);
-
-// $file=fopen('example.txt','r');
-
-// while(!feof($file)){
-//     echo fgets($file) . "<br>";
-// }
-
-// fclose($file)
-
-
-// $my_text="Digital School\n";
-
-// fwrite($my_file,$my_text);
-
-// $h=fopen('data.txt','w+');
-// fwrite($h, 'Text test 1')
-
-file_put_contents('test.txt','/nText test 1');
-echo file_get_contents('test.txt');
-
+<?php 
+// $username=$_GET['username'];
+// $password=$_GET['password'];
+// echo $username;
+// echo  "<br>";
+// echo $password;
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form>
+        <label for="username">Username</label><br>
+        <input type="text"id="username" name="username" placeholder="Username"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        <input type="submit" value="Submit"><br>
+    </form> -->
+
+  <form action="add.php" method='POST'>
+        <input type="text"id="name" name="name" placeholder="name"><br>
+        <input type="text" id="surname" name="surname" placeholder="surname"><br>
+        <input type="text" id="email" name="email" placeholder="email"><br>
+        <button type='submit' name='submit'>Add</button>
+
+  </form>
+</body>
+</html>
