@@ -1,15 +1,32 @@
 <?php
-try{
-    $pdo=new PDO("mysql:host=localhost; dbname=testdb",'root','');
-    $pdo=new PDO("mysql:host=localhost; dbname=testdb",'root','');
-    // $username='Erina';
-    // $password=password_hash('mypassword',PASSWORD_DEFAULT);
-    // $sql="INSERT INTO users (username,pass) VALUE ('$username','$password')";
-    $sql="ALTER TABLE products ADD email VARCHAR"
-    $pdo->exec($sql);
-    echo "New record created successfully";
-
-}catch(DOException $e){
-    echo $e->getMessage();
-}
+    // $username=$_GET['username'];
+    // $password=$_GET['password'];
+    // echo $username;
+    // echo "<br>";
+    // echo $password;
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" placeholder="Username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        <input type="submit" value="Submit">
+    </form> -->
+    <form action="add.php" method="POST">
+        <input type="text" id="name" name="name" placeholder="name"><br>
+        <input type="text" id="surname" name="surname" placeholder="surname"><br>
+        <input type="text" id="email" name="email" placeholder="email"><br>
+        <button type='submit' name='submit'>Add</button>
+    </form>
+</body>
+</html>
