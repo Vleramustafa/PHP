@@ -1,0 +1,51 @@
+<?php
+
+$server='localhost';
+$user='root';
+$password='';
+$dbname='testdb';
+
+try{
+    $connect= new PDO("mysql:host=$server;dbname=$dbname",$user,$password);
+ 
+}catch(Exception $e){
+    echo "Something went wrong";
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>ID </th>
+            <th>Username </th>
+            <th>Name </th>
+            <th>Email </th>
+        </thead>
+      <tbody>
+        <?php
+        foreach($users as $user){
+            
+            
+        ?>
+
+        <tr>
+            <td> <?= $user['id'] ?></td>
+            <td> <?= $user['username'] ?></td>
+            <td> <?= $user['name'] ?></td>
+            <td> <?= $user['email'] ?></td>
+        </tr>
+
+        <?php
+         }
+        ?>
+      </tbody> 
+    </table>
+</body>
+</html>
