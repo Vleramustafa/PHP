@@ -1,44 +1,48 @@
 <?php
-// $username=$_GET['username'];
-// $password=$_GET['password'];
-// echo $username;
-// echo"<br>";
-// echo $password;
-
-
+include_once('config.php');
+$sql='SELECT* FROM users';
+$getUsers=$connect->prepare($sql);
+$getUsers->execute();
+$users=$getUsers->fetchAll();
 ?>
-
-
-
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10</title>
 </head>
 <body>
-    <!-- <form>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" placeholder="Username"><br>
-        <label for="oassword">Password:</label><br>
-        <input type="password" id="password" name="password" placeholder="Password"><br>
-        <input type="submit" value="Submit">
-    </form> -->
-    <form action="add.php" method='POST'>
-    <input type="text" id="name" name="name" placeholder="name"><br>
-    <input type="text" id="surname" name="surname" placeholder="surname"><br>
-    <input type="text" id="email" name="email" placeholder="email"><br>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Name</th>
+           
+            <th>Email</th>
+        </thead>
+        <tbody>
+    <?php
+    foreach($users as $user){
 
-    <button type="submit"  name="submit">Add</button>
-    </form>
+    
+    
+    ?>
+
+    <tr>
+        <td><?= $user['id']?></td>
+        <td><?= $user['username']?></td>
+        <td><?= $user['name']?></td>
+       
+        <td><?= $user['email']?></td>
+    </tr>
 
 
 
-
-
-
-
+    <?php
+    }
+    ?>
+        
+        </tbody>
 </body>
-
-
-
 </html>

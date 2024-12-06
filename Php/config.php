@@ -1,11 +1,14 @@
 <?php
-$server='localhost';
-$username='name';
-$password='';
-$dbname='testdb';
+    $server='localhost';
+    $username='root';
+    $password='';
+    $dbname='testdb';
 
-try{
-$connect =new PDO("mysql:host=$server;dbname=$dbname",$username,$password);
-}catch(Exception $e){
-    echo "Something went wrong";
-}
+    try{
+        $connect = new PDO("mysql:host=$server; dbname=$dbname", $username,$password);
+    }catch(Exception $e){
+        echo "Something went wrong";
+    }
+
+
+?>
