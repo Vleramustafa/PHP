@@ -1,35 +1,44 @@
 <?php
 
-    //  $my_file=fopen('ds.txt','w');
+Include_once('config.php');
+$sql='SELECT * FROM USERS';
+$getuser=$connect->prepare($sql);
+$getuser->execute();
+$user=$getuser->fetchAll();
 
-
-    // fclose($my_file);
-
-    //set the name of the file to be open
-    // $my_filename='ds.txt';
-
-    // //open the file for reading 
-    // $my_file=fopen($my_filename, 'r');
-
-    // //get the size of the file
-    // $my_size=filesize($my_filename)
-
-    // $my_filedate=fread($my_file,$my_size);
-
-    // $file=fopen('example.txt','r');
-
-    // while(!feof($file)){
-    //     echo fgets($file) . "<br>";
-    // }
-
-    // fclose($file);
-
-    // $my_text="Digital School\n"
-
-    // fwrite($my_file,$my_text);
-    
-    // $h=fopen('data.txt','w+')
-
-    file_put_contents('test.txt','\nText test 1');
-    echo file_get_contents('test.txt');
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+            <?php
+                foreach($user as $user){
+            ?>
+
+                <tr>
+                    <td><?= $user['id']?></td>
+                    <td><?= $user['username']?></td>
+                    <td><?= $user['name']?></td>
+                    <td><?= $user['email-']?></td>
+                </tr>
+
+
+            <?php
+                }
+            ?>
+        </tbody>
+    </table>
+</body>
+</html>
