@@ -1,41 +1,47 @@
 <?php
+include_once('config.php');
+$sql=" SELECT * FROM users";
+$getUsers=$conn->prepare($sql);
+$getUsers->execute();
+$users=$getUsers->fetchAll();
 
 
-// my_file=fopen('ds.txt','w');
 
-//set the name of the file to be open
+?>
+<<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>lesson 10</title>
+</head>
+<body>
+  <table>
+   <thead>
+   	<th>ID</th>
+   	<th>username</th>
+   	<th>name</th>
+   	<th>surname</th>
+   	<th>email</th>
+   </thead>
+   <tbody>
+   	<?php
+ foreach ($users as $user ) {
+ 	
+ 
+   	?>
+     <tr>
+     	<td><? $user['id'?></td>
+     	<td><? $user['username'?></td>
+     	<td><? $user['name'?></td>
+     
+     	<td><? $user['email'?></td>
+     </tr>
 
-// $my_filename='ds.text';
-
-
-// //open the file for reading
-// $my_file=fopen($my_filename,'r');
-
-
-// //get the size of the file
-// $my_size=filesize($my_filename);
-
-
-// //read the contents of the file iinto a variable
-// $my_filedate=fread($my_file,$my_size);
-
-
-// $file=open('example.txt','r');
-
-// while(!feof($file)){
-// 	echo fgets($file) . "<br>"
-// }
-
-// fclose($file);
-
-// $my_text="digital school\n";
-
-// fwrite($my_file,$my_text);
-
-// $h=fopen('data.txt','w+');
-// fwrite($h,'text test 1');
-
-file_put_contents('test.txt','\ntext test 1');
-echo file_get_contents('text.txt');
-
- ?> 
+   	<?php
+    }
+   	?>
+   </tbody>
+  </table>
+</body>
+</html>
