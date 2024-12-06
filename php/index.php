@@ -1,9 +1,12 @@
 <?php
+
 include_once('config.php');
 $sql='SELECT * FROM users';
-$getUsers=$connect->prepare($sql);
-$getUsers->execute();
-$users=$getUsers->fetchAll();
+$getusers=$connect->prepare($sql);
+$getusers->execute();
+$users=$getusers->fetchAll();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -19,24 +22,27 @@ $users=$getUsers->fetchAll();
             <th>ID</th>
             <th>Username</th>
             <th>Name</th>
+            <th>Surname</th>
             <th>Email</th>
         </thead>
         <tbody>
             <?php
-                foreach($users as $user){
-            ?>
+            foreach($users as $user){
 
-            <tr>
-                <td><?= $user['id']?></td>
-                <td><?= $user['username']?></td>
-                <td><?= $user['name']?></td>
-                <td><?= $user['email']?></td>
-            </tr>
+            
+            ?>
+            
+<tr>
+    <td><?= $user ['id']?></td>
+    <td><?= $user ['username']?></td>
+    <td><?= $user ['name']?></td>
+    <td><?= $user ['email']?></td>
+</tr>
 
             <?php
-                }
+            }
             ?>
         </tbody>
-    </table>
+</table>
 </body>
 </html>

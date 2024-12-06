@@ -1,6 +1,6 @@
 <?php
 include_once('config.php');
-$id=2;
+$id=1;
 $sql="DELETE FROM users WHERE id=:id";
 $deleteUsers=$connect->prepare($sql);
 $deleteUsers->bindParam(':id',$id);
