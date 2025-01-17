@@ -30,6 +30,17 @@
     </style>
 </head>
 <body>
+
+
+<?php
+    include_once('config.php');
+    $getUsers=$conn->prepare("SELECT * FROM users");
+
+    $getUsers->execute();
+    $users=$getUsers->fetchAll();
+
+?>
+
 <table class="table">
   <thead>
     <tr>
@@ -41,15 +52,27 @@
       <th scope="col">Update</th>
     </tr>
   </thead>
+  
+  <?php
+     foreach($users as $user){
+    
+     
+  ?>
+  
   <tbody>
     <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <!-- <th scope="row"></th> -->
+      <td> <?= $user['id'] ?></td>
+      <td> <?= $user['username'] ?></td>
+      <td> <?= $user['name'] ?></td>
+      <td> <?= $user['surname'] ?></td>
+      <td> <?= $user['email'] ?></td>
+      <td> <?= "<a href='delete.php?id=$user['id']>DELETE</a> | <a href='update.php?id=$user['id']>UPDATE</a>" ?></td>
+      
     </tr>
+    <?php
+     }
+    ?>
   
   </tbody>
 </table>
