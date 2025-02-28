@@ -1,33 +1,40 @@
-<?php
+<?php 
+ /*
+  We will include config.php for connection with database.
+  We will fetch all datas from movies in database and show them.
+  */
+	
+   include_once('config.php');
 
-include_once('config.php');
+   $sql = "SELECT * FROM movies";
+   $selectMovies = $conn->prepare($sql);
+   $selectMovies->execute();
+   $movies_data = $selectMovies->fetchAll();
 
-$sql="SELECT * FROM movies";
-$selectMovies=$conn->prepare($sql);
-$selectMovies->execute();
-$movie_data=$selectMovies->fetchAll();
-?>
 
-<!DOCTYPE html>
+
+ ?>
+
+ <!DOCTYPE html>
  <html>
  <head>
-  <title>Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<title>Home</title>
+ 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ 	 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
-  <meta name="theme-color" content="#7952b3">
+  	<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+	<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+	<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+	<meta name="theme-color" content="#7952b3">
  </head>
  <body>
 
- <header>
+ 	<header>
   <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
       <div class="row">
@@ -46,7 +53,6 @@ $movie_data=$selectMovies->fetchAll();
       </div>
     </div>
   </div>
-
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
@@ -59,8 +65,8 @@ $movie_data=$selectMovies->fetchAll();
     </div>
   </div>
 </header>
-
-<section class="py-5 text-center container">
+ 
+ 	<section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Album example</h1>
@@ -76,23 +82,17 @@ $movie_data=$selectMovies->fetchAll();
   <div class="album py-5 bg-light">
     <div class="container">
 
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
+      	<?php foreach ($movies_data as $movie_data) { ?>
 
-        <?php foreach ($movies_data as $movie_data) { ?>
-
-
-        <div class="col">
+      	<div class="col">
           <div class="card shadow-sm">
-
 
             <img src="movie_images/<?php echo $movie_data['movie_image'];  ?>" height="350">
 
-
             <div class="card-body">
-
-            <h4><?php echo $movie_data['movie_name']; ?></h4>
+              <h4><?php echo $movie_data['movie_name']; ?></h4>
               <p class="card-text"><?php echo $movie_data['movie_desc']; ?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
@@ -105,22 +105,18 @@ $movie_data=$selectMovies->fetchAll();
             </div>
           </div>
         </div>
-        
-        <?php } ?>
+      		
+      <?php	} ?>
    
        
-
 
         
       </div>
     </div>
   </div>
 
-
   
-
 
 
  </body>
  </html>
-    

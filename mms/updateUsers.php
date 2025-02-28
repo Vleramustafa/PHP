@@ -15,5 +15,5 @@ if(isset($_POST['SUBMIT'])){
     $prep->bindParam(':email',$email);
     $prep->execute();
 
-    header('Location: dashboard.php')
+    header('Location:dashboard.php');
 }

@@ -11,13 +11,13 @@ if(isset($_POST['submit'])){
     $password=$_POST['password'];
 
     if(empty($username) || empty($password)){
-        echo "Please fill out all the fields"
+        echo "Please fill out all the fields";
     }else{
         $sql="SELECT id,name,username,surname,password,is_admin FROM users WHERE username=:username";
 
         $selectUser=$conn->prepare($sql);
-    $selectUser->bindParam(":username".$username);
-  $selectUser->execute():
+    $selectUser->bindParam(":username",$username);
+  $selectUser->execute();
   $data= $selectUser->fetch();
 
   if($data==false){
@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
 
     header('Location:dashboard.php');
   }else{
-    echo "The password is not valid"
+    echo "The password is not valid";
   }
   }
 }

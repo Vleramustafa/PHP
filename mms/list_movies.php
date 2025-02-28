@@ -1,12 +1,20 @@
-<?php 
-/*Creating a session  based on a session identifier, passed via a GET or POST request.
-  Creating a form which users will use to give some movie data, then we will post those datas into addMovie.php file
-*/
+<?php
 
-  session_start();
+session_start();
 
- ?>
+include_once('config.php');
 
+if(empty($_SESSION['username'])){
+    header('Location:login.php');
+}
+
+$sql="SELECT * FROM movies";
+$selectUsers=$conn->prepare($sql);
+$selectUsers->execute();
+
+$users_data=$selectUsers->fetchAll();
+
+?>
  <!DOCTYPE html>
  <html>
  <head>
@@ -23,12 +31,6 @@
 	<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 	<meta name="theme-color" content="#7952b3">
-
-  <style>
-    #floatingInput{
-      margin: 20px 0px;
-    }
-  </style>
  </head>
  <body>
  
@@ -79,7 +81,7 @@
           </li>
         </ul>
 
-    
+       
       </div>
     </nav>
 
@@ -89,37 +91,43 @@
         
       </div>
 
-    
+    <?php if ($_SESSION['is_admin'] == 'true') { ?>
 
       <h2>Movies</h2>
+      <a href="movies.php" class="btn btn-primary">Add Movie</a>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Emri</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($users_data as $user_data) { ?>
 
-       <form action="addMovie.php" method="post">
-    
-        
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Movie Name" name="movie_name" >
-          <label for="floatingInput">Movie name</label>
-        </div>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Movie Description" name="movie_desc" >
-          <label for="floatingInput">Movie Description</label>
-        </div>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Quality" name="movie_quality" >
-          <label for="floatingInput">Movie Quality</label>
-        </div>
-        <div class="form-floating">
-          <input type="number" class="form-control" id="floatingInput" placeholder="Rating" name="movie_rating" >
-          <label for="floatingInput">Rating</label>
-        </div>
-        <div class="form-floating">
-          <input type="file" class="form-control" id="floatingInput" placeholder="Image" name="movie_image" >
-          <label for="floatingInput">Image</label>
-        </div>
-         <button  class="w-100 btn btn-lg btn-primary" type="submit" name="submit"> Add Movie </button> 
-      </form>
-      
+               <tr>
+                <td><?php echo $user_data['id']; ?></td>
+                <td><?php echo $user_data['movie_name']; ?></td>
+                <td><?php echo $user_data['movie_desc']; ?></td>
+                <td><?php echo $user_data['movie_quality']; ?></td>
+                <!-- If we want to update a movie we created a link which will link us in edit.php file: -->
+                <td><a href="edit.php?id=<?= $user_data['id'];?>">Update</a></td>
+                <!-- If we want to Delete a movie we created a link which will link us in delete.php file -->
+                <td><a href="delete.php?id=<?= $user_data['id'];?>">Delete</a></td>
+              </tr>
+              
+           <?php  } ?>
+           
+            
+          </tbody>
+        </table>
       </div>
+     <?php } ?>
     </main>
   </div>
 </div>
