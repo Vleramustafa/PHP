@@ -8,14 +8,20 @@ $user_id=$_SESSION['id'];
 
 if($_SESSION['is_admin']=='true'){
     $sql="SELECT movies.movie_name,users.email,bookings.id,bookings.nr_tickets,bookings.date,bookings.is_approved,bookings.time FROM movies
+<<<<<<< HEAD
     INNER JOIN bookings ON movies.id=bookings.movie_id 
     INNER JOIN users ON users.id=bookings.user_id";
+=======
+    INNER JOIN bookings ON movies.id=bookings.movie_id
+    INNER JOIN users ON users.id=bookings.user_id"
+>>>>>>> 149310b9f6a15afdffe2cb8b05636c5ffa6f037a
 
     $selectBookings=$conn->prepare($sql);
     $selectBookings->execute();
 
     $bookings_data=$selectBookings->fetchAll();
 }else{
+<<<<<<< HEAD
     $sql="SELECT movies.movie_name,users.email,bookings.id,bookings.nr_tickets,bookings.date,bookings.is_approved,bookings.time FROM movies
     INNER JOIN bookings ON movies.id=bookings.movie_id 
     INNER JOIN users ON users.id=bookings.user_id WHERE bookings,user_id=:user_id";
@@ -185,3 +191,14 @@ if($_SESSION['is_admin']=='true'){
 
  </body>
  </html>
+=======
+$sql="SELECT movies.movie_name,users.email,bookings.id,bookings.nr_tickets,bookings.date,bookings.is_approved,bookings.time FROM movies
+INNER JOIN bookings ON movies.id=bookings.movie_id
+INNER JOIN users ON users.id=bookings.user_id WHERE bookings,user_id=:user_id";
+$selectBookings=$conn->prepare($sql);
+
+$selectBookings->bindParam(':user_id',$user_id);
+$selectBookings->execute();
+$bookings_data=$selectBookings->fetchAll();
+}
+>>>>>>> 149310b9f6a15afdffe2cb8b05636c5ffa6f037a
