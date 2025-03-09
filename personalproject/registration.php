@@ -4,12 +4,19 @@
 
 <!DOCTYPE html>
 <html>
-<img id="logo" src="images/logo.png">
 <br><br>
 <head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="login.1.1.php">
+	<link rel="stylesheet" type="text/css" href="">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+<div id="topdown">
+	<img id="logo" src="images/logo.png">
+<a id="Home" href="Home.php">HOME</a>
+</div>
+
+
 </head>
 <body>
 	<div class="main">  	
@@ -60,10 +67,12 @@ body{
 }
 
 #logo{
- height: 200px;
- width: 200px;
-position:absolute;
-top:10px
+ height: 90px;
+ width: 100px;
+position:relative;
+border-radius:1px;
+
+
 }
 #chk{
 	display: none;
@@ -97,6 +106,29 @@ input{
 
   
 }
+
+#topdown{
+ background: linear-gradient(to bottom,rgb(37, 30, 103),rgb(39, 35, 83),rgb(37, 30, 100));
+	position:absolute;
+	top:1px;
+	width:100%;
+	height:90px
+}
+
+
+#Home{
+	position:absolute;
+	top:35px;
+	left:150px;
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+#Home:hover{
+color:#6495ed;
+}
+
 button{
 	width: 60%;
 	height: 40px;
