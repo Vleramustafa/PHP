@@ -43,6 +43,10 @@
 			</div>
 	</div>
 </body>
+<svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#302b63" fill-opacity="1" d="M0,64L60,85.3C120,107,240,149,360,144C480,139,600,85,720,101.3C840,117,960,203,1080,240C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+<a id="ig" href="">INSTAGRAM</a>
+<a id="fb" href="">FACEBOOK</a>
+<a id="tt" href="">TIKTOK</a>
 </html>
 <style>
 body{
@@ -66,14 +70,64 @@ body{
 	box-shadow: 5px 20px 50px #000;
 }
 
+#fb{
+	position:absolute;
+	bottom:-200px;
+	left:100px;
+	color:white;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  text-decoration:none;
+}
+
+#ig{
+	position:absolute;
+	bottom:-200px;
+	color:white;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  text-decoration:none;
+}
+#tt{
+position:absolute;
+	bottom:-200px;
+	right:100px;
+	color:white;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  text-decoration:none;
+}
+
+#ig:hover{
+	color:#6495ed;
+	transition: ease-in 0.3s;
+	transform: scale(1.2);
+}
+
+#fb:hover{
+	color:#6495ed;
+	transition: ease-in 0.3s;
+	transform: scale(1.2);
+}
+
+#tt:hover{
+	color:#6495ed;
+	transition: ease-in 0.3s;
+	transform: scale(1.2);
+}
+
 #logo{
  height: 90px;
  width: 100px;
 position:relative;
 border-radius:1px;
-
-
 }
+
+#svg{
+	position: absolute;
+	bottom: -300px;
+}
+
 #chk{
 	display: none;
 }
@@ -82,6 +136,7 @@ border-radius:1px;
 	width:100%;
 	height: 100%;
 }
+
 label{
 	color: #fff;
 	font-size: 2.3em;
@@ -127,6 +182,8 @@ input{
 
 #Home:hover{
 color:#6495ed;
+transition: ease-in 0.3s;
+transform: scale(1.2);
 }
 
 button{
