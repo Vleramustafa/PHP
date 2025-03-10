@@ -167,7 +167,7 @@ input{
 	position:absolute;
 	top:1px;
 	width:100%;
-	height:90px
+	height:90px;
 }
 
 

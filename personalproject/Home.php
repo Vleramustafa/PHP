@@ -27,7 +27,7 @@
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	background-color:black;
   background-size: cover;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: bold;
@@ -94,7 +94,13 @@ transform: scale(1.1);
 	font-family: 'Courier New', Courier, monospace;
 	font-weight: lighter;
     font-style: italic;
-   cursor: default;
+  
+}
+
+#slogan:hover{
+	color:#6495ed;
+transition: ease-in 0.3s;
+transform: scale(1.1);
 }
 
 </style>
