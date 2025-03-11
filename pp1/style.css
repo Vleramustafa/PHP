@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body{
+    background-image: url(carp.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    justify-items: center;
+    align-items: center;
+}
+.h1{
+    background-color: black;
+   margin-right: 30%;
+}
+
+h1{
+    text-align: top;
+    color:blue;
+    font-size:35px;
+    margin-top: 50px;
+  margin-left: 50px;
+}
+.box{
+    width: 200px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
