@@ -1,14 +1,15 @@
 <?php
-    $server='localhost';
-    $username='root';
-    $password='';
-    $dbname='testdb';
-    
-    try{
-        $connect=new PDO("mysql:host=$server;dbname=$dbname",$username,$password);
-    }catch(Exception $e){
-        echo "Something went wrong";
+//Initialization of some variables for maintaining database data
+$user="root";
+$pass="";
+$server="localhost";
+$dbname="mms";
 
-    }
+try {
+	//Creating a PDO to connect with database
+	$conn =new PDO("mysql:host=$server;dbname=$dbname",$user,$pass);
+} catch (PDOException $e) {
+	echo "error: " . $e->getMessage();
+}
 
 ?>
