@@ -3,136 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        .order-btn {
-            background-color: #bf160a;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
+        body {
+            background-color: #f8f9fa;
         }
-        .order-btn:hover {
-            background-color: darkred;
+
+        /* Header Style */
+        .navbar {
+            background-color: #9e1c13; /* Red color */
+        }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        /* Sidebar Style */
+        #sidebarMenu {
+            background-color: #ffffff; /* White color */
+            border-right: 2px solid  #9e1c13; /* Red border */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar .nav-item .nav-link {
+            color:  #9e1c13;
+        }
+        .sidebar .nav-item .nav-link.active {
+            background-color:  #9e1c13;
+            color: white;
+        }
+
+        /* Main Content Style */
+        .main-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color:  #9e1c13;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #ffe6e6;
+        }
+
+        .btn-primary {
+            background-color:  #9e1c13;
+            border-color:  #9e1c13;
+        }
+
+        .btn-primary:hover {
+            background-color:  #9e1c13;
+            border-color:  #9e1c13;
+        }
+        
+        .footer {
+            background-color:  #9e1c13;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <!-- Navbar -->
+    <header class="navbar navbar-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Library</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="signup.php">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Sign In</a></li>
-                </ul>
+            <a class="navbar-brand" href="#">Dashboard</a>
+            <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search">
+            <div class="navbar-nav">
+                <a class="nav-link" href="logout.php">Sign out</a>
             </div>
         </div>
-    </nav>
-    
-    <div class="container mt-4">
-        <h2>Best Sellers</h2>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book1.jpg" class="card-img-top" alt="Book 1">
-                    <div class="card-body">
-                        <h5 class="card-title">The Great Gatsby</h5>
-                        <p class="card-text">F. Scott Fitzgerald</p>
-                        <p class="card-text">12.00 €</p>
-                        <button class="order-btn">Order</button>
+            <!-- Sidebar -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.php">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="dashboard.php">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="list_movies.php">
+                                <i class="fas fa-film"></i> Movies
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="bookings.php">
+                                <i class="fas fa-ticket-alt"></i> Bookings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="main-content">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Dashboard</h1>
+                    </div>
+
+                    <!-- Users Table -->
+                    <h2>Users</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Example user data (you can replace with PHP to fetch real data) -->
+                                <tr>
+                                    <td>1</td>
+                                    <td>John Doe</td>
+                                    <td>johndoe</td>
+                                    <td>john@example.com</td>
+                                    <td><a href="editUsers.php?id=1" class="btn btn-sm btn-primary">Update</a></td>
+                                    <td><a href="deleteUsers.php?id=1" class="btn btn-sm btn-danger">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jane Smith</td>
+                                    <td>janesmith</td>
+                                    <td>jane@example.com</td>
+                                    <td><a href="editUsers.php?id=2" class="btn btn-sm btn-primary">Update</a></td>
+                                    <td><a href="deleteUsers.php?id=2" class="btn btn-sm btn-danger">Delete</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book2.jpg" class="card-img-top" alt="Book 2">
-                    <div class="card-body">
-                        <h5 class="card-title">1984</h5>
-                        <p class="card-text">George Orwell</p>
-                        <p class="card-text">10.00 €</p>
-                        <button class="order-btn">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book3.jpg" class="card-img-top" alt="Book 3">
-                    <div class="card-body">
-                        <h5 class="card-title">To Kill a Mockingbird</h5>
-                        <p class="card-text">Harper Lee</p>
-                        <p class="card-text">13.00 €</p>
-                        <button class="order-btn">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book4.jpg" class="card-img-top" alt="Book 4">
-                    <div class="card-body">
-                        <h5 class="card-title">It ends with us</h5>
-                        <p class="card-text">Colleen Hoover</p>
-                        <p class="card-text">18.00 €</p>
-                        <button class="order-btn">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book5.jpg" class="card-img-top" alt="Book 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Harry Potter and the Sorcerer's Stone</h5>
-                        <p class="card-text">J.K. Rowling</p>
-                        <p class="card-text">12.00 €</p>
-                        <button class="order-btn">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book6.jpg" class="card-img-top" alt="Book 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Pride and Prejudice</h5>
-                        <p class="card-text">Jane Austen</p>
-                        <p class="card-text">8.00 €</p>
-                        <button class="order-btn">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book7.jpg" class="card-img-top" alt="Book 4">
-                    <div class="card-body">
-                        <h5 class="card-title">The Fault in Our Stars</h5>
-                        <p class="card-text">John Green</p>
-                        <p class="card-text">9.00 €</p>
-                        <button class="order-btn">Order</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="images/book8.jpg" class="card-img-top" alt="Book 4">
-                    <div class="card-body">
-                        <h5 class="card-title">The Shining</h5>
-                        <p class="card-text">Stephen King</p>
-                        <p class="card-text">13.00 €</p>
-                        <button class="order-btn">Order</button>
-                    </div>
-                </div>
-            </div>
+            </main>
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Your Company. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

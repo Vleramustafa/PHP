@@ -80,7 +80,7 @@
         <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block">Login</button>
+      <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
     </form>
 
     <div class="sign-up-link">

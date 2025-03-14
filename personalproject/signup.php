@@ -95,7 +95,7 @@
         <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+      <button type="submit" name="submit" class="btn btn-primary btn-block">Sign Up</button>
     </form>
 
     <div class="sign-in-link">
