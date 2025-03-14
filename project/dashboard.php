@@ -1,12 +1,12 @@
 <?php
-include_once
+include_once('config.php');
 if(empty($_SESSION['username'])){
     header('Location:login.php');
 }
-$sql="SELECT * FROM users"
-$getUsers=$connect->prepare($sql)
+$sql="SELECT * FROM users";
+$getUsers=$connect->prepare($sql);
 $getUsers->execute();
-$users-data=$getUser->fetchAll();
+$users_data=$getUser->fetchAll();
 include_once("header.php");
 ?>
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -69,7 +69,7 @@ include_once("header.php");
             </tr>
           </thead>
           <?php
-          foreach ($users as $user) {
+          foreach ($users as $user) 
             ?>
             <tbody>
                 <tr>
@@ -79,6 +79,7 @@ include_once("header.php");
                     <td><?= $user['surname'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td><?= "<a href='delete.php?id=$user[id]'> Delete</a>| <a href='profile.php?id=$user[id]'> Uptade </a>"?></td>
+                    
           </tbody>
         </table>
       </div>
