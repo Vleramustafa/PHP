@@ -109,10 +109,12 @@ body{
 .register-link p a{
 	text-decoration: underline;
 }
+
     </style>
 
 </head>
 <body>
+
 	<div class="wrapper">
 		<form action="">
 			<h1>login</h1>
@@ -129,9 +131,10 @@ body{
 				<label><input type="checkbox">remember me</label>
 				<a href="#">forgot password</a>
 			</div>
-			<a href="s.s.html"><button type="submit" class="btn">login</button></a>
+			<a href="login.php
+			"><button type="submit" class="btn">login</button></a>
 			<div class="register-link">
-				<p>dont have an account <a href="s.s.html">register</a></p>
+				<p>dont have an account <a href="signup.php">sign up</a></p>
 			</div>
 		</form>
 		
