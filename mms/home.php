@@ -117,10 +117,5 @@ $movie_data=$selectMovies->fetchAll();
     </div>
   </div>
 
-
-  
-
-
-
  </body>
  </html>
