@@ -1,18 +1,18 @@
 <?php
 
-session_start();
+// session_start();
 
-include_once('config.php')
-if(empty($_SESSION['username'])){
-    header('Location:login.php')
-}
+// include_once('config.php')
+// if(empty($_SESSION['username'])){
+//     header('Location:login.php')
+// }
 
 
-$sql="SELECT * FROM user";
-$selectUsers=$coon->prepare($sql);
-$selectUsers->execute();
+// $sql="SELECT * FROM user";
+// $selectUsers=$coon->prepare($sql);
+// $selectUsers->execute();
 
-$users_data=$selectUsers->fetchAll();
+// $users_data=$selectUsers->fetchAll();
 ?>
 
 
