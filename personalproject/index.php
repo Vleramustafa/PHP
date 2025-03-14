@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
-    <title>Essence | Online Makeup Shopping</title>
+    <title>Essence | Online Makeup Shopping - Admin Dashboard</title>
     <style>
         /* Resetting some default styles */
         * {
@@ -33,177 +32,122 @@
             font-weight: bold;
             color: #e91e63;
             text-align: center;
-        }
-
-        /* Navigation Bar */
-        nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            margin-top: 10px;
-            background-color: #e91e63;
-            padding: 10px 0;
         }
 
-        nav a {
-            color: white;
-            font-size: 1.1rem;
+        header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header .logo h1 {
+            margin: 0;
+        }
+
+        /* Admin Navigation */
+        .admin-nav {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+
+        .admin-nav a {
+            color: #333;
             text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 25px;
+            font-size: 1.2rem;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
             transition: background-color 0.3s;
         }
 
-        nav a:hover {
-            background-color: #d81b60;
+        .admin-nav a:hover {
+            background-color: #f4f4f4;
         }
 
-        nav .search-bar {
+        .admin-nav a img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        /* Main Content Area */
+        .admin-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        /* Dashboard Section */
+        .dashboard {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: white;
-            padding: 10px;
-            border-radius: 25px;
-            width: 300px;
-        }
-
-        nav .search-bar input[type="text"] {
-            width: 80%;
-            padding: 8px;
-            border: none;
-            border-radius: 25px;
-        }
-
-        nav .search-bar button {
-            width: 15%;
-            padding: 8px;
-            border: none;
-            background-color: #e91e63;
-            color: white;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        nav .search-bar button:hover {
-            background-color: #d81b60;
-        }
-
-        .cart-icon {
-            font-size: 1.5rem;
-            color: white;
-            margin-left: 15px;
-            cursor: pointer;
-        }
-
-        /* Main content section */
-        .featured-products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            justify-content: space-around;
+            margin: 20px 0;
             gap: 20px;
-            margin-bottom: 40px;
         }
 
-        .product-card {
+        .dashboard-card {
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 20px;
             text-align: center;
-            transition: transform 0.3s ease;
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .product-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .product-card h3 {
-            color: #333;
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        .product-card .price {
+        .dashboard-card h3 {
             color: #e91e63;
-            font-size: 1.1rem;
-            margin-top: 5px;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-
-        ./* Categories Section */
-.categories {
-    background-color: #fff5f9; /* Light pink background for the section */
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.categories h2 {
-    font-size: 2rem;
-    color: #f472b6; /* Pink title color */
-    margin-bottom: 30px;
-}
-
-.category-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.category-item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-size: 1.1rem;
-    color: #f472b6; /* Pink text */
-    transition: all 0.3s ease;
-    width: 180px;
-    text-align: center;
-}
-
-.category-item:hover {
-    background-color: #f472b6; /* Pink background on hover */
-    color: #fff; /* White text when hovering */
-}
-
-@media (max-width: 768px) {
-    .category-item {
-        width: 150px; /* Reduce the width on smaller screens */
-    }
-}
-
-        /* Footer Section */
-        footer {
-            background-color: #222;
-            color: #fff;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        footer .social-icons a {
-            margin: 0 15px;
-            color: #fff;
             font-size: 1.5rem;
-            text-decoration: none;
+            margin-bottom: 10px;
         }
 
-        footer .social-icons a:hover {
+        .dashboard-card p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .dashboard-card .highlight {
+            font-size: 2rem;
             color: #e91e63;
+            font-weight: bold;
         }
 
-        footer p {
+        .dashboard-card img {
+            width: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Product Table */
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
-            font-size: 1rem;
         }
 
-        /* Modal (Login / Sign Up) */
+        .product-table th,
+        .product-table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .product-table th {
+            background-color: #e91e63;
+            color: white;
+        }
+
+        .product-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Modal Styles (Login / Sign Up) */
         .modal {
             display: none;
             position: fixed;
@@ -267,6 +211,48 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* Footer Section */
+        footer {
+            background-color: #e91e63;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer .footer-container .address,
+        footer .footer-container .social {
+            flex: 1;
+        }
+
+        footer .footer-container .social a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        footer .footer-container .address p {
+            margin: 5px 0;
+        }
+
+        footer .footer-container .social a:hover {
+            color: #f4f4f4;
+        }
+
+        footer .footer-container .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 
@@ -274,131 +260,147 @@
 
     <!-- Header Section -->
     <header>
-    <div class="logo">
-        <h1>Essence</h1>
-        <p>Your Beauty, Your Essence</p>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#" id="loginLink">Login</a></li>
-            <li><a href="#" id="signupLink">Sign Up</a></li>
-        </ul>
-    </nav>
-</header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Essence Logo"> <!-- Placeholder Logo -->
+            <h1>Essence</h1>
+        </div>
+    </header>
 
-<!-- New Section: Featured Products -->
-<section class="featured-products">
-    <h2>Featured Products</h2>
-    <div class="featured-card">
-        <img src="h.png" alt="Featured Product 1">
-        <h3>Highlighter</h3>
-        <p>$30.00</p>
-        <button>Shop Now</button>
+    <!-- Admin Navigation -->
+    <div class="admin-nav">
+        <a href="products.php"><img src="img/prod.png" alt="Product Icon">Products</a>
+        <a href="#" id="loginLink"><img src="img/login.png" alt="Login Icon">Login</a>
+        <a href="#" id="signupLink"><img src="img/login.png" alt="Sign Up Icon">Sign Up</a>
     </div>
-    <div class="featured-card">
-        <img src="https://via.placeholder.com/200x200" alt="Featured Product 2">
-        <h3>Eyeshadow Palette</h3>
-        <p>$45.00</p>
-        <button>Shop Now</button>
-    </div>
-    <div class="featured-card">
-        <img src="https://via.placeholder.com/200x200" alt="Featured Product 3">
-        <h3>Primer</h3>
-        <p>$20.00</p>
-        <button>Shop Now</button>
-    </div>
-</section>
 
-<!-- New Section: Categories -->
-<section class="categories">
-    <h2>Shop By Categories</h2>
-    <div class="category-list">
-        <div class="category-item">Face Makeup</div>
-        <div class="category-item">Eye Makeup</div>
-        <div class="category-item">Lip Makeup</div>
-        <div class="category-item">Skincare</div>
-    </div>
-</section>
+    <!-- Main Content Area -->
+    <div class="admin-content">
+        <!-- Dashboard -->
+        <section class="dashboard">
+            <div class="dashboard-card">
+                <img src="img/sales.png" alt="Sales Icon">
+                <h3>Total Sales</h3>
+                <p class="highlight">$12,500</p>
+            </div>
+            <div class="dashboard-card">
+                <img src="img/users.png" alt="Users Icon">
+                <h3>Total Users</h3>
+                <p class="highlight">850</p>
+            </div>
+            <div class="dashboard-card">
+                <img src="img/order.png" alt="Orders Icon">
+                <h3>Orders Today</h3>
+                <p class="highlight">120</p>
+            </div>
+        </section>
 
-<!-- Existing Product Section -->
-<section class="products">
-    <div class="product-card">
-        <img src="https://via.placeholder.com/200x200" alt="Product 1">
-        <h3>Foundation</h3>
-        <p>$25.00</p>
-        <button>Buy Now</button>
+        <!-- Product Management -->
+        <section class="product-management">
+            <h2>Manage Products</h2>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Highlighter</td>
+                        <td>$30.00</td>
+                        <td>50</td>
+                        <td><button>Edit</button> <button>Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Eyeshadow Palette</td>
+                        <td>$45.00</td>
+                        <td>30</td>
+                        <td><button>Edit</button> <button>Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Primer</td>
+                        <td>$20.00</td>
+                        <td>70</td>
+                        <td><button>Edit</button> <button>Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </div>
-    <div class="product-card">
-        <img src="https://via.placeholder.com/200x200" alt="Product 2">
-        <h3>Lipstick</h3>
-        <p>$18.00</p>
-        <button>Buy Now</button>
-    </div>
-    <div class="product-card">
-        <img src="https://via.placeholder.com/200x200" alt="Product 3">
-        <h3>Blush</h3>
-        <p>$15.00</p>
-        <button>Buy Now</button>
-    </div>
-</section>
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Essence Makeup | All Rights Reserved</p>
-</footer>
-
-<!-- Login Modal -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeLogin">&times;</span>
-        <h2>Login</h2>
-        <form action="login.php" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <form action="login.php" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<!-- Sign Up Modal -->
-<div id="signupModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeSignup">&times;</span>
-        <h2>Sign Up</h2>
-        <form action="signup.php" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
-        </form>
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2>Sign Up</h2>
+            <form action="signup.php" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<script>
-    // Open and close modals
-    document.getElementById("loginLink").onclick = function() {
-        document.getElementById("loginModal").style.display = "block";
-    }
-    document.getElementById("signupLink").onclick = function() {
-        document.getElementById("signupModal").style.display = "block";
-    }
-    document.getElementById("closeLogin").onclick = function() {
-        document.getElementById("loginModal").style.display = "none";
-    }
-    document.getElementById("closeSignup").onclick = function() {
-        document.getElementById("signupModal").style.display = "none";
-    }
-    window.onclick = function(event) {
-        if (event.target === document.getElementById("loginModal")) {
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="address">
+                <h3>Essence Cosmetics</h3>
+                <p>123 Makeup Street, Beauty City</p>
+                <p>Email: support@essence.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="social">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Essence Cosmetics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Open and close modals
+        document.getElementById("loginLink").onclick = function () {
+            document.getElementById("loginModal").style.display = "block";
+        }
+        document.getElementById("signupLink").onclick = function () {
+            document.getElementById("signupModal").style.display = "block";
+        }
+        document.getElementById("closeLogin").onclick = function () {
             document.getElementById("loginModal").style.display = "none";
         }
-        if (event.target === document.getElementById("signupModal")) {
+        document.getElementById("closeSignup").onclick = function () {
             document.getElementById("signupModal").style.display = "none";
         }
-    }
-</script>
+        window.onclick = function (event) {
+            if (event.target === document.getElementById("loginModal")) {
+                document.getElementById("loginModal").style.display = "none";
+            }
+            if (event.target === document.getElementById("signupModal")) {
+                document.getElementById("signupModal").style.display = "none";
+            }
+        }
+    </script>
 
 </body>
+
 </html>
