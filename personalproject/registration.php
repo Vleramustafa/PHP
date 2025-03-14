@@ -13,7 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 <div id="topdown">
 	<img id="logo" src="images/logo.png">
-<a id="Home" href="Home.php">HOME</a>
+<a id="Home" href="home.php">HOME</a>
+<a id="slogan" href="aboutus.php">-FITNESS DONE RIGHT-</a>
 </div>
 
 
@@ -43,7 +44,7 @@
 			</div>
 	</div>
 </body>
-<svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#302b63" fill-opacity="1" d="M0,64L60,85.3C120,107,240,149,360,144C480,139,600,85,720,101.3C840,117,960,203,1080,240C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+<svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,64L0,96L1440,96L1440,320L0,320L0,320Z"></path></svg>
 <a id="ig" href="">INSTAGRAM</a>
 <a id="fb" href="">FACEBOOK</a>
 <a id="tt" href="">TIKTOK</a>
@@ -57,15 +58,16 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  background-size: cover
+	background-color:white;
+	background: url('images/background.jpg');
+  background-size: cover;
 }
 .main{
 	width: 350px;
 	height: 500px;
 	background: red;
 	overflow: hidden;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	background-color:#273036;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
@@ -117,15 +119,38 @@ position:absolute;
 }
 
 #logo{
- height: 90px;
+ height: 100px;
  width: 100px;
-position:relative;
-border-radius:1px;
+position: absolute;
+left:10px;
+top: 10px;
+border-radius:30px;
+border-style:solid;
+color:white;
+background-color:#273036;
 }
 
 #svg{
 	position: absolute;
 	bottom: -300px;
+}
+
+#slogan{
+	position:absolute;
+	top:50px;
+	right:740px;
+	color:#fff;
+	text-decoration:none;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: lighter;
+    font-style: italic;
+  
+}
+
+#slogan:hover{
+	color:#6495ed;
+transition: ease-in 0.3s;
+transform: scale(1.1);
 }
 
 #chk{
@@ -158,22 +183,20 @@ input{
 	border: none;
 	outline: none;
 	border-radius: 5px;
-
-  
 }
 
 #topdown{
- background: linear-gradient(to bottom,rgb(37, 30, 103),rgb(39, 35, 83),rgb(37, 30, 100));
+ background-color: #273036;
 	position:absolute;
 	top:1px;
 	width:100%;
-	height:90px;
+	height:100px;
 }
 
 
 #Home{
 	position:absolute;
-	top:35px;
+	top:45px;
 	left:150px;
 	color:#fff;
 	text-decoration:none;
@@ -193,7 +216,7 @@ button{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #573b8a;
+	background: #273030;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 30px;
@@ -204,7 +227,7 @@ button{
 	cursor: pointer;
 }
 button:hover{
-	background: #6d44b8;
+	background:rgb(79, 78, 80)
 }
 .login{
 	height: 460px;
@@ -214,7 +237,7 @@ button:hover{
 	transition: .8s ease-in-out;
 }
 .login label{
-	color: #573b8a;
+	color: #273030;
 	transform: scale(.6);
 }
 

@@ -86,7 +86,7 @@ transform: scale(1.2);
 }
 
 #topdown{
- background:rgb(27, 27, 27);
+ background-color:#273036;
 	position:absolute;
 	top:1px;
 	width:100%;
@@ -100,8 +100,10 @@ top:100px;
 position: absolute;
 left:10px;
 top: 10px;
-background-color: #000;
+background-color: #273036;
 border-radius: 30px;
+border-style:solid;
+color:white;
 }
 
 #paragraph{
@@ -134,8 +136,8 @@ border-radius: 30px;
    width: 550px;
    right: 200px;
    position: absolute;
-   border-radius: 40px;
-   top: 90px;
+   border-radius: 35px;
+   top: 120px;
 }
 
 #section2{
