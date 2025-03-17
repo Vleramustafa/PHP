@@ -154,7 +154,7 @@ iframe {
                 
             </div>
             
-                <button>buy it</button>
+               <a href="buy.php"> <button>buy it</button></a>
             </a>
         </article>
     
@@ -213,3 +213,7 @@ iframe {
    
 </body>
 </html>
+
+
+
+
