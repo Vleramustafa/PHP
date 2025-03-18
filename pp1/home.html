@@ -73,6 +73,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     cursor: pointer;
+border: 2px solid #333;
     
 
  
@@ -81,7 +82,7 @@
 
 .car:hover {
     transform: scale(1.05);
-    box-shadow: red;
+    background-color: bisque;
 }
 
 .car img {
@@ -122,6 +123,19 @@ iframe {
         max-width: 100%;
     }
 }
+.btn{
+    background-color:green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
   
 
    
@@ -151,11 +165,12 @@ iframe {
                    <p> cmimi : 65,000 $</p>
                    <p> importuar nga gjermania
                 </p>
-                
+              
+               
             </div>
             
-               <a href="buy.php"> <button>buy it</button></a>
-            </a>
+              <button class="btn">buy it</button>
+          
         </article>
     
         <article class="car">
@@ -171,7 +186,7 @@ iframe {
                 
             </div>
           
-                <button>buy it</button>
+                <button class="btn">buy it</button>
             </a>
         </article>
     
@@ -189,7 +204,7 @@ iframe {
                
             </div>
             
-                <button>buy it</button>
+                <button class="btn">buy it</button>
             </a>
         </article>
     
@@ -206,7 +221,7 @@ iframe {
                
             </div>
            
-                <button>buy it</button>
+                <button class="btn">buy it</button>
             </a>
         </article>
     </section>

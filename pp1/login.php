@@ -1,20 +1,4 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        session_start();
-        $_SESSION['username'] = $user;
-        echo "Login successful!";
-    } else {
-        echo "Invalid credentials!";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,7 +135,7 @@ body{
 			<a href="login.php
 			"><button type="submit" class="btn">login</button></a>
 			<div class="register-link">
-				<p>dont have an account <a href="signup.php">sign up</a></p>
+				<p>dont have an account? <a href="signup.php">sign up</a></p>
 			</div>
 		</form>
 		
