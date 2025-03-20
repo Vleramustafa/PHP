@@ -1,4 +1,40 @@
+<?php
 
+include_once('config.php');
+
+if(isset($_POST['submit'])){
+    $name=$_POST['emri'];
+    $surname=$_POST['surname'];
+    $username=$_POST['username'];
+    $email=$_POST['email'];
+    $tempPass=$_POST['password'];
+
+    $password=password_hash($tempPass, PASSWORD_DEFAULT);
+
+    $tempConfirm=$_POST['confirm_password'];
+    $confirm_password=password_hash($tempConfirm, PASSWORD_DEFAULT);
+
+    if(empty($name) || empty($username) || empty($surname) || empty($email) || empty($password) || empty($confirm_password)){
+        echo "you have not filled  in all the fields ";
+    }else{
+       
+        $sql="INSERT INTO users(name,username,surname,email,password,confirm_password) VALUE (:name,:username,:surname,:email,:password,:confirm_password)";
+
+        $insertSQL=$conn->prepare($sql);
+        $insertSQL->bindParam(':name',$name);
+        $insertSQL->bindParam(':surname',$surname);
+        $insertSQL->bindParam(':username',$username);
+        $insertSQL->bindParam(':email',$email);
+        $insertSQL->bindParam(':password',$password);
+        $insertSQL->bindParam(':confirm_password',$confirm_password);
+
+        $insertSQL->execute();
+
+        header('location:login.php');
+
+    }
+   
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,7 +167,7 @@
 			
 				
 			
-			<a href="login.php"><button type="submit" class="btn">sign up</button></a>
+		<button type="submit" class="btn">sign up</button>
 		
 		</form>
 		
