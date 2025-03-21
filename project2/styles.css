@@ -1,0 +1,189 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+header .nav-links li a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+header .menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+header .menu-icon span {
+    display: block;
+    background-color: white;
+    height: 4px;
+    width: 25px;
+    margin: 5px 0;
+}
+
+/* Sign-In Container */
+.signin-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signin-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.signin-container .input-group {
+    margin-bottom: 15px;
+}
+
+.signin-container .input-group label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.signin-container .input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signin-container .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #1c6dd0;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signin-container .btn:hover {
+    background-color: #004fa6;
+}
+
+.signin-container p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signin-container p a {
+    color: #1c6dd0;
+    text-decoration: none;
+}
+
+.signin-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .footer-content {
+    margin-bottom: 20px;
+}
+
+footer .social-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+footer .social-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+footer .social-links li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .nav-links.active {
+        display: flex;
+    }
+
+    header .menu-icon {
+        display: block;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
