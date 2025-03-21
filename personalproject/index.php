@@ -13,8 +13,8 @@
         <div class="logo"><h2>ZARA</h2></div>
         <ul class="menu">
             <li><a href="" class="active">Home</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.php">Contact Us</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
         </ul>
         <div class="menu-btn">
         </div>
@@ -32,7 +32,7 @@
 
 
             <div class="card">
-                <div class="img"><img src="download(10).jpg" alt=""></div>
+                <div class="img"><img src="e.jpg" alt=""></div>
                 <div class="desc">Women</div>
                 <div class="title">Dress</div>
                 <div class="box">
