@@ -1,40 +1,37 @@
 <?php
-
-include_once('config.php');
+require 'config.php';
 
 if(isset($_POST['submit'])){
-    $name=$_POST['emri'];
-    $surname=$_POST['surname'];
-    $username=$_POST['username'];
-    $email=$_POST['email'];
-    $tempPass=$_POST['password'];
-
-    $password=password_hash($tempPass, PASSWORD_DEFAULT);
-
-    $tempConfirm=$_POST['confirm_password'];
-    $confirm_password=password_hash($tempConfirm, PASSWORD_DEFAULT);
-
-    if(empty($name) || empty($username) || empty($surname) || empty($email) || empty($password) || empty($confirm_password)){
-        echo "you have not filled  in all the fields ";
-    }else{
-       
-        $sql="INSERT INTO users(name,username,surname,email,password,confirm_password) VALUE (:name,:username,:surname,:email,:password,:confirm_password)";
-
-        $insertSQL=$conn->prepare($sql);
-        $insertSQL->bindParam(':name',$name);
-        $insertSQL->bindParam(':surname',$surname);
-        $insertSQL->bindParam(':username',$username);
-        $insertSQL->bindParam(':email',$email);
-        $insertSQL->bindParam(':password',$password);
-        $insertSQL->bindParam(':confirm_password',$confirm_password);
-
-        $insertSQL->execute();
-
-        header('location:login.php');
-
-    }
-   
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$confirm_password = $_POST['confirm_password'];
+	$duplicate = mysqli_query($conn,"SELECT * FROM user WHERE username='$username'");
+	if(mysqli_num_rows($duplicate)>0){
+		echo 
+		"<script>
+		alert('username has already taken');</script>";
+	}else{
+		if($password == $confirm_password){
+			$query = "INSERT INTO user VALUES('','$name','$email','$username','$password')";
+			mysqli_query($conn,$query);
+			echo 
+			"<script>
+			alert('sign up succesful');</script>";
+		}else{
+			echo 
+			"<script>
+			alert('password does not match');</script>";
+		}
+	}
 }
+		
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,23 +142,22 @@ if(isset($_POST['submit'])){
 			<h1>signup</h1>
 
             <div class="input-box">
-             <input type="text" placeholder="name" required>
+             <input type="text" placeholder="name" id="name" required>
             </div>
             <div class="input-box">
-             <input type="text" placeholder="surname" required>
-            </div>
-            <div class="input-box">
-             <input type="email" placeholder="email" required>
+             <input type="email" placeholder="email" id="email" required>
             </div>
 			<div class="input-box">
-				<input type="text" placeholder="username"required >
+				<input type="text" placeholder="username" id="username" required >
 				<i class='bx bxs-user'></i>
 			</div>
 				<div class="input-box">
-				<input type="password" placeholder="password"required >
+				<input type="password" placeholder="password" id="password" required >
 				<i class='bx bxs-lock-alt' ></i>
 			</div>
-       
+			<div class="input-box">
+             <input type="password" placeholder="confirm password" id="confirm password" required>
+            </div>
 
 				
 			
