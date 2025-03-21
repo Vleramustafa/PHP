@@ -1,26 +1,46 @@
 <?php
+// Start the session to use session variables
 session_start();
-include('config.php'); // If you have a database connection
 
+// Include the database connection file (config.php should define the $pdo variable)
+include('config.php'); 
+
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get the username and password from the form
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Query your database to check for the username and password
-    $sql = "SELECT * FROM users WHERE username = :username";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(['username' => $username]);
+    // Check if the username is not empty
+    if (!empty($username)) {
+        // Prepare SQL query to check if the user exists in the database
+        $sql = "SELECT * FROM users WHERE username = :username";
+        $stmt = $pdo->prepare($sql);
 
-    $user = $stmt->fetch();
+        // Bind the username parameter and execute the query
+        try {
+            $stmt->execute(['username' => $username]);
+            $user = $stmt->fetch();
 
-    // If user exists and password matches
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
-        header("Location: index.html"); // Redirect to homepage after successful login
-        exit;
+            // Check if a user was found and if the password matches
+            if ($user && password_verify($password, $user['password'])) {
+                // Set session variables after successful login
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                
+                // Redirect to the homepage after successful login
+                header("Location: index.html");
+                exit;
+            } else {
+                // Set error message if invalid credentials
+                $error_message = "Invalid username or password!";
+            }
+        } catch (PDOException $e) {
+            // Handle any database connection or query issues
+            $error_message = "Database error: " . $e->getMessage();
+        }
     } else {
-        $error_message = "Invalid username or password!";
+        $error_message = "Please enter a username.";
     }
 }
 ?>

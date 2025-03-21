@@ -253,6 +253,36 @@
             margin-top: 20px;
             font-size: 0.9rem;
         }
+
+        .form-signin {
+	  width: 100%;
+	  max-width: 330px;
+	  padding: 15px;
+	  margin: auto;
+	}
+
+	.form-signin .checkbox {
+	  font-weight: 400;
+	}
+    .form-signin .form-floating:focus-within {
+	  z-index: 2;
+	}
+
+	.form-signin input[type="email"] {
+	  margin-bottom: -1px;
+	  border-bottom-right-radius: 0;
+	  border-bottom-left-radius: 0;
+	}
+
+	.form-signin input[type="password"] {
+	  margin-bottom: 10px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+	.form-floating{
+		margin: 10px;
+    }
+
     </style>
 </head>
 
@@ -338,7 +368,7 @@
             <form action="login.php" method="POST">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
+                <a href="login.php">Login</a>
             </form>
         </div>
     </div>
@@ -348,12 +378,41 @@
         <div class="modal-content">
             <span class="close" id="closeSignup">&times;</span>
             <h2>Sign Up</h2>
-            <form action="signup.php" method="POST">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
-            </form>
+            <main class="form-signin">
+  <form action="register.php" method="post">
+    
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Emri" name="emri">
+      <label for="floatingInput">Emri</label>
+    </div>
+     <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email">
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingInput" placeholder="Password" name="password">
+      <label for="floatingInput">Password</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Confirm Password" name="confirm_password">
+      <label for="floatingPassword">Confirm Password</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Sign up</button>
+    <span>Already have an account: </span><a href="login.php">Sign in</a>
+  </form>
+</main>
+        
         </div>
     </div>
 

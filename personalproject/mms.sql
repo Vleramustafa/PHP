@@ -45,9 +45,9 @@ INSERT INTO `users`
 
 
  INSERT INTO `products` (`id`, `product_name`, `product_quality`, `product_rating`, `product_image`) VALUES
-(1,  '3D', 10, 'zgjoi.jpg'),
-(2,  '2D', 7, 'fastandfurious.jpg'),
-(3,  '6D', 7, 'venom.png');
+(1, 'highlighter','good', 10, 'h.png'),
+(2, 'eyeshadow', 'good', 8, 'e.png'),
+(3, 'primer', 'good', 9, 'p.png');
 
 
 INSERT INTO `orders` (`id`, `user_id`, `product_id`,`is_approved`) VALUES
