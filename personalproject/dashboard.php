@@ -114,12 +114,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="list_movies.php">
-                                <i class="fas fa-film"></i> Movies
+                                <i class="fas fa-film"></i> Books
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="bookings.php">
-                                <i class="fas fa-ticket-alt"></i> Bookings
+                                <i class="fas fa-ticket-alt"></i> Orders
                             </a>
                         </li>
                     </ul>
@@ -141,7 +141,7 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Username</th>
+                                    <th scope="col">Surname</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Update</th>
                                     <th scope="col">Delete</th>
@@ -151,16 +151,16 @@
                                 <!-- Example user data (you can replace with PHP to fetch real data) -->
                                 <tr>
                                     <td>1</td>
-                                    <td>John Doe</td>
-                                    <td>johndoe</td>
+                                    <td>John</td>
+                                    <td>Doe</td>
                                     <td>john@example.com</td>
                                     <td><a href="editUsers.php?id=1" class="btn btn-sm btn-primary">Update</a></td>
                                     <td><a href="deleteUsers.php?id=1" class="btn btn-sm btn-danger">Delete</a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Jane Smith</td>
-                                    <td>janesmith</td>
+                                    <td>Jane</td>
+                                    <td>Smith</td>
                                     <td>jane@example.com</td>
                                     <td><a href="editUsers.php?id=2" class="btn btn-sm btn-primary">Update</a></td>
                                     <td><a href="deleteUsers.php?id=2" class="btn btn-sm btn-danger">Delete</a></td>
