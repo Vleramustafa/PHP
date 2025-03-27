@@ -1,3 +1,46 @@
+<?php
+session_start();
+// Include the database connection file (Make sure the path is correct)
+require_once './models/database.php'; // This should set $db to a PDO instance
+
+// Check if the form is submitted
+if (isset($_POST['submit'])) {
+    try {
+    
+      // Prepare the SQL query using the PDO connection
+        $stmt = $db->prepare("SELECT * FROM users WHERE email =:email");
+
+        $stmt->bindParam(":email",$_POST['email'],PDO::PARAM_STR);
+        //SQL INJECTION 
+        $stmt->execute();
+
+        // Fetch the results
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Check if the result contains any rows
+        if (count($result) > 0) {
+          //qitu i bjen qe useri ekziston 
+            //na vyn my kallzu qatij userit qe qeky email osht i regjistrum
+            echo "1";  // Data found
+        } else {
+          //qitu i bjen qe useri nuk ekziston 
+          $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+          $stmt = $db->prepare("INSERT INTO users (name,email,password) VALUES(:name,:email,:password)");
+          $stmt->bindParam("name",$_POST['name'],PDO::PARAM_STR);
+          $stmt->bindParam("email",$_POST['email'],PDO::PARAM_STR);
+          $stmt->bindParam("password",$password,PDO::PARAM_STR);
+
+          $stmt->execute();
+
+          $_SESSION['logged_in'] = true;
+        }
+    } catch (PDOException $e) {
+        // Handle query errors
+        echo "Error: " . $e->getMessage();
+    }
+}
+?>
+
 
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,37 +60,43 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form>
+              <form method="POST" >
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <input type="text" name="name" id="form3Example1cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">Your Name</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="email" name="email" id="form3Example3cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example3cg">Your Email</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cg">Password</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <input type="password" name="confirm_password" id="form3Example4cdg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cdg">Repeat your password</label>
                 </div>
 
                 <div class="form-check d-flex justify-content-center mb-5">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                  <label class="form-check-label" for="form2Example3g">
-                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                  </label>
+                  <div>
+
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  </div>
+                  <div>
+                    <label class="form-check-label" for="form2Example3g">
+                      I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    </label>
+
+                  </div>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button  type="button" data-mdb-button-init
+                  <button name="submit" type="submit" data-mdb-button-init
                     data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 

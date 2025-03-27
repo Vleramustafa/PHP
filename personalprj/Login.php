@@ -1,3 +1,33 @@
+<?php
+session_start();
+require 'db.php';  // Make sure the connection is set up in db.php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = trim($_POST['username']);  // Changed $surname to $username
+    $password = trim($_POST['password']);  // Trim the password to remove whitespace
+
+    // Prepare the SQL query to get the user by username
+    $stmt = $pdo->prepare("SELECT id, password FROM users WHERE username = :username;");
+    
+    // Execute the query with the bound username parameter
+    $stmt->execute([':username' => $username]);
+
+    // Fetch the user from the database
+    $user = $stmt->fetch();
+
+    // Check if the user exists and the password matches
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id'];      // Store user ID in session
+        $_SESSION['username'] = $username;       // Store username in session
+        header("Location: dashboard.php");       // Redirect to dashboard page
+        exit;
+    } else {
+        $error = "Invalid username or password."; // Show error if login fails
+    }
+}
+?>
+
+
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">

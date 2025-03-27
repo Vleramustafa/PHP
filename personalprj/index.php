@@ -1,20 +1,27 @@
 <?php
+
+// session_start();
+
+// if(!isset($_SESSION['logged_in'])){
+//     header("Location: login.php");
+// }
+
 // Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "car_rental";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "car_rental";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 
-// Fetch available cars from the database
-$sql = "SELECT * FROM cars";
-$result = $conn->query($sql);
+// // Fetch available cars from the database
+// $sql = "SELECT * FROM cars";
+// $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -74,18 +81,6 @@ $result = $conn->query($sql);
     <form action="rent.php" method="POST">
         <h3>Select a car:</h3>
 
-        <?php
-        if ($result->num_rows > 0) {
-            // Display each car in the database
-            while($row = $result->fetch_assoc()) {
-                echo "<div class='car-item'>";
-                echo "<input type='radio' name='car_id' value='" . $row['id'] . "' required> " . $row['car_name'] . " " . $row['car_model'] . " - $" . $row['price_per_day'] . " per day";
-                echo "</div>";
-            }
-        } else {
-            echo "No cars available.";
-        }
-        ?>
 
         <label for="days">Number of days:</label>
         <input type="number" id="days" name="days" min="1" required>
@@ -94,9 +89,7 @@ $result = $conn->query($sql);
     </form>
 </div>
 
-<?php
-$conn->close();
-?>
+
 
 </body>
 </html>
