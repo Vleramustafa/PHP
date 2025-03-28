@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence Cosmetics - Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+     
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #eea1c5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .product-list {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            color: #eea1c5;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .product p {
+            color: #777;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .product .price {
+            font-size: 1.5rem;
+            color: #eea1c5;
+            font-weight: bold;
+        }
+
+        .filter-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-section input {
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .filter-section button {
+            padding: 10px;
+            background-color: #eea1c5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #eea1c5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #eea1c5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #eea1c5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom of the page */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Essence Cosmetics</h1>
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="products.html">Products</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <!-- Product Display Section -->
+    <div class="product-list">
+        <h2>Our Products</h2>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <label for="priceFilter">Filter by Price: </label>
+            <input type="number" id="priceFilter" placeholder="Max Price">
+            <button onclick="filterProducts()">Apply Filter</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products" id="productContainer">
+            <!-- Products will be inserted here dynamically via JavaScript -->
+        </div>
+    </div>
+    
+   
+    
+    <script>
+         const products = [
+            {
+                name: "Highlighter",
+                price: 30.00,
+                description: "A beautiful highlighter that gives a radiant glow to your skin.",
+                image: "img/h.png"
+            },
+            {
+                name: "Eyeshadow Palette",
+                price: 45.00,
+                description: "A versatile eyeshadow palette with a variety of shades.",
+                image: "img/e.png"
+            },
+            {
+                name: "Primer",
+                price: 20.00,
+                description: "A primer that helps your makeup last longer.",
+                image: "img/p.png"
+            },
+            {
+                name: "Mascara",
+                price: 15.00,
+                description: "A volumizing mascara that enhances your lashes.",
+                image: "img/m.png"
+            },
+            {
+                name: "Lip Liner",
+                price: 12.00,
+                description: "A smooth lip liner to define your lips.",
+                image: "img/l.png"
+            }
+        ];
+
+        // Function to display products
+        function displayProducts(filteredProducts) {
+            const productContainer = document.getElementById('productContainer');
+            productContainer.innerHTML = ''; // Clear previous content
+
+            filteredProducts.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product');
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <div class="price">$${product.price.toFixed(2)}</div>
+                `;
+                productContainer.appendChild(productDiv);
+            });
+        }
+
+        // Call the function to display all products
+        displayProducts(products);
+
+        // Function to filter products by max price
+        function filterProducts() {
+            const maxPrice = parseFloat(document.getElementById('priceFilter').value);
+            if (isNaN(maxPrice)) {
+                displayProducts(products); // If no filter applied, show all products
+            } else {
+                const filteredProducts = products.filter(product => product.price <= maxPrice);
+                displayProducts(filteredProducts);
+            }
+        }
+
+     
+      
+
+        // Function to display products
+        function displayProducts(filteredProducts) {
+            const productContainer = document.getElementById('productContainer');
+            productContainer.innerHTML = ''; // Clear previous content
+
+            filteredProducts.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product');
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <div class="price">$${product.price.toFixed(2)}</div>
+                `;
+                productContainer.appendChild(productDiv);
+            });
+        }
+
+        // Call the function to display all products
+        displayProducts(products);
+
+        // Function to filter products by max price
+        function filterProducts() {
+            const maxPrice = parseFloat(document.getElementById('priceFilter').value);
+            if (isNaN(maxPrice)) {
+                displayProducts(products); // If no filter applied, show all products
+            } else {
+                const filteredProducts = products.filter(product => product.price <= maxPrice);
+                displayProducts(filteredProducts);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

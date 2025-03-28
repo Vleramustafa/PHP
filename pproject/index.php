@@ -1,0 +1,254 @@
+<?php
+// You can add your PHP logic here, such as connecting to the database or including other files
+// Example: Include database connection file
+// include('db_connection.php');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence Cosmetics</title>
+    <style>
+        /* Your CSS remains the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #eea1c5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            background-color: #eea1c5;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .hero {
+            background-image: url('img/es.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h2, .hero p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background-color: #eea1c5;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .hero button:hover {
+            background-color: #eea1c5;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
+        }
+
+        .cta-buttons a {
+            background-color: #eea1c5;
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #eea1c5;
+            transform: scale(1.05);
+        }
+
+        .highlights {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+        }
+
+        .highlights h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #eea1c5;
+        }
+
+        .highlight-items {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .highlight-item h4 {
+            color: #eea1c5;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #eea1c5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Essence Cosmetics</h1>
+    </header>
+
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="login.php">Login</a>
+        <a href="signup.php">Sign Up</a>
+        <a href="products.php">Products</a>
+        <a href="admin.php">Admin</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Welcome to Essence Cosmetics</h2>
+        <p>Discover your natural beauty with our premium cosmetic products.</p>
+        <button onclick="window.location.href='products.php'">Shop Now</button>
+    </section>
+
+    <section class="main-content">
+        <h2>Why Choose Us?</h2>
+        <p>We offer a wide range of high-quality makeup and skincare products. Our mission is to help you feel beautiful and confident every day.</p>
+
+        <div class="cta-buttons">
+            <a href="signup.php">Sign Up</a>
+            <a href="products.php">Explore Products</a>
+        </div>
+    </section>
+
+    <section class="highlights">
+        <h3>Our Top Products</h3>
+        <div class="highlight-items">
+            <div class="highlight-item">
+                <img src="img/h.png" alt="Highlighter">
+                <h4>Highlighter</h4>
+                <p>A beautiful highlighter that gives a radiant glow to your skin.</p>
+            </div>
+            <div class="highlight-item">
+                <img src="img/e.png" alt="Eyeshadow Palette">
+                <h4>Eyeshadow Palette</h4>
+                <p>A versatile eyeshadow palette with a variety of shades.</p>
+            </div>
+            <div class="highlight-item">
+                <img src="img/p.png" alt="Primer">
+                <h4>Primer</h4>
+                <p>A primer that helps your makeup last longer.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Essence Cosmetics. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

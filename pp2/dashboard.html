@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Essence Cosmetics</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        header {
+            background-color: #eea1c5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        section {
+            margin-top: 30px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #eea1c5;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #eea1c5;
+        }
+        .product-list {
+            list-style-type: none;
+        }
+        .product-item {
+            margin: 10px 0;
+        }
+        .product-item button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Essence Cosmetics - Admin Dashboard</h1>
+    </header>
+
+    <section>
+        <h2>Manage Products</h2>
+
+        <form id="addProductForm">
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <input type="text" id="productDescription" placeholder="Product Description" required>
+            <input type="number" id="productPrice" placeholder="Product Price" required>
+            <button type="submit">Add Product</button>
+        </form>
+
+        <h3>Product List</h3>
+        <ul id="productList" class="product-list">      </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Essence Cosmetics. All rights reserved.</p>
+    </footer>
+
+    <script>
+     
+        const products = JSON.parse(localStorage.getItem("products")) || [];
+        const productList = document.getElementById("productList");
+
+        function displayProducts() {
+            productList.innerHTML = "";
+            products.forEach((product, index) => {
+                const productItem = document.createElement("li");
+                productItem.classList.add("product-item");
+                productItem.innerHTML = `
+                    ${product.name} - $${product.price}
+                    <button onclick="deleteProduct(${index})">Delete</button>
+                `;
+                productList.appendChild(productItem);
+            });
+        }
+
+     
+        document.getElementById("addProductForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const productName = document.getElementById("productName").value;
+            const productDescription = document.getElementById("productDescription").value;
+            const productPrice = document.getElementById("productPrice").value;
+
+            const newProduct = { name: productName, description: productDescription, price: productPrice };
+            products.push(newProduct);
+            localStorage.setItem("products", JSON.stringify(products));
+
+            displayProducts();
+        });
+        function deleteProduct(index) {
+            products.splice(index, 1);
+            localStorage.setItem("products", JSON.stringify(products));
+            displayProducts();
+        }
+
+        
+        displayProducts();
+    </script>
+</body>
+
+</html>

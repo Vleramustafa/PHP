@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Manage Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; 
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+}
+
+body {
+    flex: 1; 
+}
+
+footer {
+    background-color: #eea1c5;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+
+
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Essence Cosmetics - Admin</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="products.html">Products</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <section>
+        <h2>Manage Products</h2>
+        <form id="addProductForm">
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <input type="number" id="productPrice" placeholder="Product Price" required>
+            <input type="number" id="productStock" placeholder="Stock Quantity" required>
+            <button type="submit">Add Product</button>
+        </form>
+
+        <h3>Product List</h3>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Essence Cosmetics. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Get existing products from localStorage or initialize as an empty array
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+
+        // Function to display products in the table
+        function displayProducts() {
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';  // Clear the list
+
+            products.forEach((product, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>${product.price}</td>
+                    <td>${product.stock}</td>
+                    <td>
+                        <button onclick="deleteProduct(${index})">Delete</button>
+                    </td>
+                `;
+                productList.appendChild(row);
+            });
+        }
+
+        // Handle product form submission
+        document.getElementById('addProductForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('productName').value;
+            const price = document.getElementById('productPrice').value;
+            const stock = document.getElementById('productStock').value;
+
+            // Create new product object
+            const newProduct = { name, price, stock };
+
+            // Add new product to products array
+            products.push(newProduct);
+
+            // Save updated products array to localStorage
+            localStorage.setItem('products', JSON.stringify(products));
+
+            // Display updated product list
+            displayProducts();
+        });
+
+        // Function to delete a product from the list
+        function deleteProduct(index) {
+            // Remove product from array
+            products.splice(index, 1);
+
+            // Save updated array to localStorage
+            localStorage.setItem('products', JSON.stringify(products));
+
+            // Display updated product list
+            displayProducts();
+        }
+
+        // Display products on page load
+        displayProducts();
+    </script>
+
+</body>
+
+</html>
