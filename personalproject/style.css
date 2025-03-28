@@ -56,7 +56,7 @@ body{
 }
 
 .content{
-    background-image: url(photo\(1\).webp);
+    background-image: url('photo(1).webp');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 0 5%;
