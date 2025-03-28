@@ -10,7 +10,7 @@ include('config.php')
     <meta charset="UTF-8">
     <meta name="viewport" contenEGISt="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <a id="registerbutton" href="registration.php">REGISTRATION</a>
+        <a id="registerbutton" href="login.php">REGISTRATION</a>
         <a id="olympia" href="Home.php">OLYMPIA</a>
         <a id="slogan" href="aboutus.php">-FITNESS DONE RIGHT-</a>
     
@@ -112,5 +112,7 @@ transform: scale(1.1);
 transition: ease-in 0.3s;
 transform: scale(1.1);
 }
+
+
 
 </style>
