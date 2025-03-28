@@ -117,14 +117,14 @@ body{
 <body>
 
 	<div class="wrapper">
-		<form action="">
+		<form action="loginlogic.php" method="post">
 			<h1>login</h1>
 			<div class="input-box">
-				<input type="text" placeholder="username"required >
+				<input type="text" placeholder="username" name="username"required >
 				<i class='bx bxs-user'></i>
 			</div>
 				<div class="input-box">
-				<input type="password" placeholder="password"required >
+				<input type="password" placeholder="password" name="password" required >
 				<i class='bx bxs-lock-alt' ></i>
 			</div>
 				
@@ -133,7 +133,7 @@ body{
 				<a href="#">forgot password</a>
 			</div>
 			<a href="login.php
-			"><button type="submit" class="btn">login</button></a>
+			"><button type="submit" class="btn" name="submit">login</button></a>
 			<div class="register-link">
 				<p>dont have an account? <a href="signup.php">sign up</a></p>
 			</div>

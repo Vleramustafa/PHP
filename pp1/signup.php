@@ -1,34 +1,4 @@
-<?php
-require 'config.php';
 
-if(isset($_POST['submit'])){
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	$confirm_password = $_POST['confirm_password'];
-	$duplicate = mysqli_query($conn,"SELECT * FROM user WHERE username='$username'");
-	if(mysqli_num_rows($duplicate)>0){
-		echo 
-		"<script>
-		alert('username has already taken');</script>";
-	}else{
-		if($password == $confirm_password){
-			$query = "INSERT INTO user VALUES('','$name','$email','$username','$password')";
-			mysqli_query($conn,$query);
-			echo 
-			"<script>
-			alert('sign up succesful');</script>";
-		}else{
-			echo 
-			"<script>
-			alert('password does not match');</script>";
-		}
-	}
-}
-		
-
-?>
 
 
 
@@ -138,32 +108,32 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 <div class="wrapper">
-		<form action="">
+		<form action="register.php" method="post">
 			<h1>signup</h1>
 
             <div class="input-box">
-             <input type="text" placeholder="name" id="name" required>
+             <input type="text" placeholder="name" id="name" required name="name">
             </div>
             <div class="input-box">
-             <input type="email" placeholder="email" id="email" required>
+             <input type="email" placeholder="email" id="email" required name="email">
             </div>
 			<div class="input-box">
-				<input type="text" placeholder="username" id="username" required >
+				<input type="text" placeholder="username" id="username" required name="username" >
 				<i class='bx bxs-user'></i>
 			</div>
 				<div class="input-box">
-				<input type="password" placeholder="password" id="password" required >
+				<input type="password" placeholder="password" id="password" required name="password" >
 				<i class='bx bxs-lock-alt' ></i>
 			</div>
 			<div class="input-box">
-             <input type="password" placeholder="confirm password" id="confirm password" required>
+             <input type="password" placeholder="confirm password" id="confirm_password" required name="confirm_password">
             </div>
 
 				
 			
 				
 			
-		<button type="submit" class="btn">sign up</button>
+		<button type="submit" class="btn" name="submit">sign up</button>
 		
 		</form>
 		
