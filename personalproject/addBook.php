@@ -11,16 +11,17 @@ if(isset($_POST['submit'])){
     $book_stock=$_POST['book_stock'];
     $book_cover=$_POST['book_cover'];
 
-    $sql="INSERT INTO movies(movie_name,movie_desc,movie_quality,movie_image,movie_rating) VALUES(:movie_name,:movie_desc,:movie_quality,:movie_image,:movie_rating)";
+    $sql="INSERT INTO books(book_title,book_author,book_desc,book_price,book_stock,book_cover) VALUES(:book_title,:book_author,:book_desc,:book_price,:book_stock,:book_cover)";
 
-    $insertMovie=$conn->prepare($sql);
+    $insertBook=$conn->prepare($sql);
 
-    $insertMovie->bindParam(':movie_name',$movie_name);
-    $insertMovie->bindParam(':movie_desc',$movie_desc);
-    $insertMovie->bindParam(':movie_quality',$movie_quality);
-    $insertMovie->bindParam(':movie_image',$movie_image);
-    $insertMovie->bindParam(':movie_rating',$movie_rating);
+    $insertMovie->bindParam(':book_title',$book_title);
+    $insertMovie->bindParam(':book_author',$book_author);
+    $insertMovie->bindParam(':book_desc',$book_desc);
+    $insertMovie->bindParam(':book_price',$book_price);
+    $insertMovie->bindParam(':book_stock',$book_stock);
+    $insertMovie->bindParam(':book_cover',$book_cover);
 
     $insertMovie->execute();
 
-    header('Location:movies.php');
+    header('Location:books.php');

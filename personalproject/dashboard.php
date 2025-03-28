@@ -113,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="list_movies.php">
+                            <a class="nav-link" href="list_books.php">
                                 <i class="fas fa-film"></i> Books
                             </a>
                         </li>
