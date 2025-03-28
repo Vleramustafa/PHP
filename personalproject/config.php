@@ -2,10 +2,11 @@
 $user='root';
 $pass='';
 $server='localhost';
-$dbname='';
+$dbname='database1';
 
 try{
-    $conn=new PDO("mysql:host=$server;dbname=$dbname", $user,$pass);   
+
+    $conn=new PDO("mysql:host=$server;dbname=$database1", $user,$pass);   
 }catch(PDOException $e){
     echo "error: " . $e->getMessage();
 }

@@ -15,6 +15,8 @@
             <li><a href="" class="active">Home</a></li>
             <li><a href="contactus.php">Contact Us</a></li>
             <li><a href="aboutus.php">About Us</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="signup.php">Sign Up</a></li>
         </ul>
         <div class="menu-btn">
         </div>

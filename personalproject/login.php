@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -11,100 +11,76 @@
     <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
     <style>
+
+
+        html,
     body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+      height: 100%;
+    }
 
-.container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-h2 {
-    text-align: center;
-}
+    body {
+      display: flex;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
 
-label {
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-}
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-button:hover {
-    background-color: #0056b3;
-}
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+    .form-signin .form-floating:focus-within {
+	  z-index: 2;
+	}
 
-p {
-    text-align: center;
-}
+	.form-signin input[type="email"] {
+	  margin-bottom: -1px;
+	  border-bottom-right-radius: 0;
+	  border-bottom-left-radius: 0;
+	}
 
-a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.error {
-    color: red;
-    text-align: center;
-    margin-bottom: 10px;
-}
-</style>
+	.form-signin input[type="password"] {
+	  margin-bottom: 10px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+	</style>
 </head>
-<body>
-    <div class="container">
-        <div class="form-container">
-            <h2>Login</h2>
-            <?php
-            if (isset($error_message)) {
-                echo "<p class='error'>$error_message</p>";
-            }
-            ?>
-            <form action="index.php" method="POST">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" required>
+<body class="text-center">
+<!-- Creating a from which will post some data in loginLogic.php file -->
+<main class="form-signin">
+  <form action="loginLogic.php" method="post">
+    <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" required>
-
-                <button type="submit">Login</button>
-            </form>
-
-            <p>Don't have an account? <a href="signup.php">Sign up here</a></p>
-        </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+      <label for="floatingPassword">Password</label>
     </div>
 
-.
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Sign in</button>
+	<p>Already have an account:<a href="index.php" >Sign up</a> </p>
+  </form>
+</main>
+
 </body>
 </html>
