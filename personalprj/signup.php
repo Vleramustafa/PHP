@@ -60,11 +60,16 @@ if (isset($_POST['submit'])) {
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form method="POST" >
+              <form method="POST" action="register.php" >
 
                 <div data-mdb-input-init class="form-outline mb-4">
                   <input type="text" name="name" id="form3Example1cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">Your Name</label>
+                </div>
+
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="text" name="username" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Your username</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">

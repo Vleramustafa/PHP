@@ -1,27 +1,27 @@
 <?php
 
-// session_start();
+ session_start();
 
-// if(!isset($_SESSION['logged_in'])){
-//     header("Location: login.php");
-// }
+ if(!isset($_SESSION['logged_in'])){
+     header("Location: login.php");
+ }
 
-// Database connection
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "car_rental";
 
-// $conn = new mysqli($servername, $username, $password, $dbname);
+ $servername = "localhost";
+ $username = "root";
+ $password = "";
+ $dbname = "car_rental";
 
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
+ $conn = new mysqli($servername, $username, $password, $dbname);
 
-// // Fetch available cars from the database
-// $sql = "SELECT * FROM cars";
-// $result = $conn->query($sql);
+
+ if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error);
+ }
+
+
+ $sql = "SELECT * FROM cars";
+ $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>

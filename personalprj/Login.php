@@ -1,31 +1,3 @@
-<?php
-session_start();
-require 'db.php';  // Make sure the connection is set up in db.php
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = trim($_POST['username']);  // Changed $surname to $username
-    $password = trim($_POST['password']);  // Trim the password to remove whitespace
-
-    // Prepare the SQL query to get the user by username
-    $stmt = $pdo->prepare("SELECT id, password FROM users WHERE username = :username;");
-    
-    // Execute the query with the bound username parameter
-    $stmt->execute([':username' => $username]);
-
-    // Fetch the user from the database
-    $user = $stmt->fetch();
-
-    // Check if the user exists and the password matches
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];      // Store user ID in session
-        $_SESSION['username'] = $username;       // Store username in session
-        header("Location: dashboard.php");       // Redirect to dashboard page
-        exit;
-    } else {
-        $error = "Invalid username or password."; // Show error if login fails
-    }
-}
-?>
 
 
 <head>
@@ -38,25 +10,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
-
+          <form action="loginLogic.php" method="POST">
             <div class="mb-md-5 mt-md-4 pb-5">
              Rent a Car Kikiriku
               <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                <label class="form-label" for="typeEmailX">Email</label>
+                <input type="text" id="typeEmailX" class="form-control form-control-lg"  name="username" />
+                <label class="form-label" for="typeEmailX">Username</label>
               </div>
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <input type="password" id="typePasswordX" class="form-control form-control-lg"   name="password"/>
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
               <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
-              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+              <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Sign in</button>
 
               <div class="d-flex justify-content-center text-center mt-4 pt-1">
                 <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
@@ -75,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </div>
     </div>
+    </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
