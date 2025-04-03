@@ -69,30 +69,30 @@
 <body>
   <div class="login-container">
     <h3>Create Account</h3>
-    <form>
+    <form action="register.php" method="post">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your first name" required>
+        <input type="text" class="form-control" id="floatingInput" placeholder="Enter your first name" name="name">
       </div>
 
       <div class="form-group">
         <label for="surname">Surname</label>
-        <input type="text" class="form-control" id="surname" placeholder="Enter your surname" required>
+        <input type="text" class="form-control" id="floatingInput" placeholder="Enter your surname" name="surname">
       </div>
 
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        <input type="email" class="form-control" id="floatingInput" placeholder="Enter your email" name="email">
       </div>
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        <input type="password" class="form-control" id="floatingInput" placeholder="Enter your password" name="password">
       </div>
 
       <div class="form-group">
         <label for="confirm-password">Confirm Password</label>
-        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Confirm your password" name="confirm_password">
       </div>
 
       <button type="submit" name="submit" class="btn btn-primary btn-block">Sign Up</button>

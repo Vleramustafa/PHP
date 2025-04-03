@@ -1,30 +1,19 @@
 <?php
+
 session_start();
 
 include_once('config.php');
 
-$user_id = $_SESSION['id'];
-
-if ($_SESSION['is_admin'] == 'true') {
-    $sql = "SELECT books.book_title, users.email, orders.id, orders.quantity, orders.order_date, orders.is_approved, orders.total_price FROM books
-            INNER JOIN orders ON books.id = orders.book_id
-            INNER JOIN users ON users.id = orders.user_id";
-
-    $selectOrders = $conn->prepare($sql);
-    $selectOrders->execute();
-
-    $ordering_data = $selectOrders->fetchAll();
-} else {
-    $sql = "SELECT books.book_title, users.email, orders.id, orders.quantity, orders.order_date, orders.is_approved, orders.total_price FROM books
-            INNER JOIN orders ON books.id = orders.book_id
-            INNER JOIN users ON users.id = orders.user_id WHERE orders.user_id = :user_id";
-    
-    $selectOrders = $conn->prepare($sql);
-    $selectOrders->bindParam(':user_id', $user_id);
-    $selectOrders->execute();
-    
-    $ordering_data = $selectOrders->fetchAll();
+if(empty($_SESSION['email'])){
+    header('Location:login.php');
 }
+
+$sql="SELECT * FROM books";
+$selectUsers=$conn->prepare($sql);
+$selectUsers->execute();
+
+$users_data=$selectUsers->fetchAll();
+
 ?>
 
 
@@ -81,39 +70,24 @@ if ($_SESSION['is_admin'] == 'true') {
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list_movies.php">
+            <a class="nav-link" href="list_books.php">
               <span data-feather="file"></span>
               Books
             </a>
           </li>
-          
+
+
+          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" href="ordering.php">
               <span ></span>
               Orders
             </a>
           </li>
-
-
-          <?php }else{ ?>
-          <li class="nav-item">
-              <a class="nav-link" href="home.php">
-                <span data-feather="file"></span>
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="ordering.php">
-              <span ></span>
-              Orders
-            </a>
-          </li>
-          
         </ul>
 
 
-        <?php }?>
-        
+       
       </div>
     </nav>
 
@@ -121,65 +95,48 @@ if ($_SESSION['is_admin'] == 'true') {
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
-       
+        
       </div>
 
 
+    <?php if ($_SESSION['is_admin'] == 'true') { ?>
 
-      <h2>Book Ordering</h2>
+
+        <h2>Books</h2>
+      <a href="books.php" class="btn btn-primary">Add Book</a>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-        
-              <th scope="col">Book Title</th>
-              <th scope="col">User Email</th>
-              <th scope="col">Book Quantity</th>
-              <th scope="col">Date</th>
-              <th scope="col">Approved</th>
-
-
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Email</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
-          <?php if ($_SESSION['is_admin'] == 'true') { ?>
-            <?php foreach ($ordering_data as $orders_data) { ?>
-                
-               <tr>
-                <td><?php echo $orders_data['book_title']; ?></td>
-                <td><?php echo $orders_data['email']; ?></td>
-                <td><?php echo $orders_data['quantity']; ?></td>
-                <td><?php echo $orders_data['order_date']; ?></td>
-                <td ><?php echo $orders_data['is_approved']; ?></td>
+            <?php foreach ($users_data as $user_data) { ?>
 
-
-
-                
-
-                <td><a href="approve.php?id=<?= $orders_data['id'];?>">Approve</a></td>
-                <td><a href="decline.php?id=<?= $orders_data['id'];?>">Decline</a></td>
+                <tr>
+                <td><?php echo $user_data['id']; ?></td>
+                <td><?php echo $user_data['book_title']; ?></td>
+                <td><?php echo $user_data['book_author']; ?></td>
+                <td><?php echo $user_data['book_desc']; ?></td>
+                <!-- If we want to update a movie we created a link which will link us in edit.php file: -->
+                <td><a href="edit.php?id=<?= $user_data['id'];?>">Update</a></td>
+                <!-- If we want to Delete a movie we created a link which will link us in delete.php file -->
+                <td><a href="delete.php?id=<?= $user_data['id'];?>">Delete</a></td>
               </tr>
               
-           <?php }}else{ ?>
-            <?php foreach ($ordering_data as $orders_data) { ?>
-            <tr>
-            <td><?php echo $orders_data['book_title']; ?></td>
-            <td><?php echo $orders_data['email']; ?></td>
-            <td><?php echo $orders_data['quantity']; ?></td>
-            <td><?php echo $orders_data['order_date']; ?></td>
-            <td ><?php echo $orders_data['is_approved']; ?></td>
-           </tr>
-            
-           <?php } ?>
-          <?php } ?>
+           <?php  } ?>
            
             
           </tbody>
         </table>
-
-
-
-           </div>
+      </div>
+     <?php } ?>
     </main>
   </div>
 </div>

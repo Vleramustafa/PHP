@@ -129,34 +129,34 @@
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="main-content">
           <h2>Edit book's details</h2>
-          <form action="update_book.php" method="post">
+          <form action="update.php" method="post">
             <div class="form-floating">
-              <input readonly="readonly" type="text" class="form-control" id="floatingInput" placeholder="id" name="id" value="<?php echo $book_data['id'] ?>">
+              <input readonly="readonly" type="text" class="form-control" id="floatingInput" placeholder="id" name="id" value="<?php echo $user_data['id'] ?>">
               <label for="floatingInput">ID</label>
             </div>
 
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder="book_title" name="book_title" value="<?php echo $book_data['book_title'] ?>">
+              <input type="text" class="form-control" id="floatingInput" placeholder="book_title" name="book_title" value="<?php echo $user_data['book_title'] ?>">
               <label for="floatingInput">Book Title</label>
             </div>
 
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder="book_author" name="book_author" value="<?php echo $book_data['book_author'] ?>">
+              <input type="text" class="form-control" id="floatingInput" placeholder="book_author" name="book_author" value="<?php echo $user_data['book_author'] ?>">
               <label for="floatingInput">Book Author</label>
             </div>
 
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder="book_desc" name="book_desc" value="<?php echo $book_data['book_desc'] ?>">
+              <input type="text" class="form-control" id="floatingInput" placeholder="book_desc" name="book_desc" value="<?php echo $user_data['book_desc'] ?>">
               <label for="floatingInput">Book Description</label>
             </div>
 
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInput" placeholder="book_price" name="book_price" value="<?php echo $book_data['book_price'] ?>">
+              <input type="text" class="form-control" id="floatingInput" placeholder="book_price" name="book_price" value="<?php echo $user_data['book_price'] ?>">
               <label for="floatingInput">Book Price</label>
             </div>
 
             <div class="form-floating">
-              <input type="number" class="form-control" id="floatingInput" placeholder="book_stock" name="book_stock" value="<?php echo $book_data['book_stock'] ?>">
+              <input type="number" class="form-control" id="floatingInput" placeholder="book_stock" name="book_stock" value="<?php echo $user_data['book_stock'] ?>">
               <label for="floatingInput">Book Stock</label>
             </div>
 

@@ -76,7 +76,6 @@
             color: white;
             padding: 10px;
             text-align: center;
-            position: absolute;
             width: 100%;
             bottom: 0;
         }
@@ -146,7 +145,7 @@
                     <form action="addBook.php" method="post" enctype="multipart/form-data">
 
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Book Name" name="book_name" required>
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Book Name" name="book_title" required>
                             <label for="floatingInput">Book Name</label>
                         </div>
 

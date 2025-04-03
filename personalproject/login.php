@@ -69,15 +69,15 @@
 <body>
   <div class="login-container">
     <h3>Login</h3>
-    <form>
+    <form action="loginLogic.php" method="post">
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        <input type="email" class="form-control" id="floatingInput" placeholder="Enter your email" name="email">
       </div>
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Enter your password" name="password">
       </div>
 
       <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
