@@ -28,12 +28,56 @@
     <title>Hyni</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    form {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+  </style>
 <body>
-    <h2>Hyni</h2>
+    <h2>Sherbimet Ligjore ne Linje</h2>
     <form action="login.php" method="POST">
         <label for="email">Email:</label><br>
         <input type="email" name="email" id="email" required><br>
-        <label for="password">Fjalëkalimi:</label><br>
+        <label for="password">Tipi Sherbimit:</label><br>
         <input type="password" name="password" id="password" required><br><br>
         <input type="submit" value="Hyni">
         <section class="vh-100" style="background-color: #eee;">
@@ -61,7 +105,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                       <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <label class="form-label" for="form3Example3c">Your Surname</label>
                     </div>
                   </div>
 
@@ -97,8 +141,9 @@
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <!-- <img src="art.png"
-                  class="img-fluid" alt="https://www.freepik.com/premium-ai-image/abstract-blurred-art-background_151477809.htm" width=""> -->
+                <img src="law.jpg"
+                  class="img-fluid" alt="https://www.freepik.com/premium-ai-image/abstract-blurred-art-background_151477809.htm" width="100%" 
+                  height="100%"/> 
 
               </div>
             </div>

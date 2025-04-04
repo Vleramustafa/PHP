@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Regjistrohu</title>
 </head>
 <body>
+
     <h2>Regjistrohu</h2>
     <form action="register.php" method="POST">
         <label for="username">Username:</label><br>
@@ -33,5 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="password" id="password" required><br><br>
         <input type="submit" value="Regjistrohu">
     </form>
+
+    
 </body>
 </html>
