@@ -1,0 +1,183 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "restaurant_db";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$message')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Thank you for contacting us!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoranti - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="menuifatri_files/logo.jpg" alt="Logo Casa Mia" class="logo">
+            <h1>Casa Mia</h1>
+            <nav>
+                <a href="#home">Kryefaqja</a>
+                <a href="#menu">Menyja</a>
+                <a href="#contact">Kontakti</a>
+            </nav>
+        </div>
+    </header>
+    
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Mirësevini në Restorantin Tonë</h2>
+            <p>Ushqim i shijshëm, i përgatitur me dashuri dhe përbërësit më të mirë.</p>
+            <a href="#menu" class="btn">Shiko Menynë</a>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2>Menu Iftari</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="menuifatri_files/menuiftari.jpg" alt="Pjata 1">
+                    <h3>Oferta 1</h3>
+                    <span>8.00€</span>
+                </div>
+                <div class="menu-item">
+                    <img src="" alt="Pjata 2">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="menu-item">
+                    <img src="" alt="Pjata 3">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="menu-item">
+                    <img src="menuifatri_files/menuiftari1.jpg" alt="Pjata 4">
+                    <h3>Oferta 4</h3>
+                    <span>12.00€</span>
+                </div>
+                <div class="menu-item">
+                    <img src="menuifatri_files/menuiftari2.jpg" alt="Pjata 5">
+                    <h3>Oferta 5</h3>
+                    <span>15.00€</span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2>Menu Tradicionale</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="" alt="Pjata 1">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="menu-item">
+                    <img src="" alt="Pjata 2">
+                    <h3></h3>
+                    <span></span>
+                </div>
+             
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2>Ofertat Ditore</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="" alt="Pjata 1">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="menu-item">
+                    <img src="" alt="Pjata 2">
+                    <h3></h3>
+                    <span></span>
+                </div>
+             
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2>Menu e Përgjithshme </h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="" alt="Pjata 1">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="menu-item">
+                    <img src="" alt="Pjata 2">
+                    <h3></h3>
+                    <span></span>
+                </div>
+                <div class="menu-item">
+                    <img src="" alt="Pjata 2">
+                    <h3></h3>
+                    <span></span>
+                </div>
+             
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Kontaktoni Me Ne</h2>
+            <form action="#">
+                <label for="name">Emri & Mbiemri</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Emaili</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mesazhi Juaj</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="btn">Dërgo Mesazhin</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Casa Mia. Të drejtat janë të rezervuara.</p>
+        </div>
+    </footer>
+</body>
+</html>
