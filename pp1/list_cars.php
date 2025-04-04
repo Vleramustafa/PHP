@@ -1,12 +1,20 @@
-<?php 
-/*Creating a session  based on a session identifier, passed via a GET or POST request.
-  Creating a form which users will use to give some movie data, then we will post those datas into addMovie.php file
-*/
+<?php
 
-  session_start();
+session_start();
 
- ?>
+include_once('config.php');
 
+if(empty($_SESSION['username'])){
+    header('Location:login.php');
+}
+
+$sql="SELECT * FROM cars";
+$selectUsers=$conn->prepare($sql);
+$selectUsers->execute();
+
+$users_data=$selectUsers->fetchAll();
+
+?>
  <!DOCTYPE html>
  <html>
  <head>
@@ -23,12 +31,6 @@
 	<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 	<meta name="theme-color" content="#7952b3">
-
-  <style>
-    #floatingInput{
-      margin: 20px 0px;
-    }
-  </style>
  </head>
  <body>
  
@@ -51,7 +53,7 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
       <ul class="nav flex-column">
-
+          
             <li class="nav-item">
               <a class="nav-link" href="home.php">
                 <span data-feather="file"></span>
@@ -65,21 +67,21 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addCar.php">
+            <a class="nav-link" href="list_movies.php">
               <span data-feather="file"></span>
-              cars
+            cars
             </a>
           </li>
         <?php  ?>
           <li class="nav-item">
-            <a class="nav-link" href="buyCar.php">
+            <a class="nav-link" href="bookings.php">
               <span ></span>
-              buy cars
+              buy car
             </a>
           </li>
         </ul>
 
-    
+       
       </div>
     </nav>
 
@@ -89,41 +91,49 @@
         
       </div>
 
-    
+
 
       <h2>cars</h2>
+      <a href="cars.php" class="btn btn-primary">add car</a>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Emri</th>
+              <th scope="col">km</th>
+              <th scope="col">year</th>
+              <th scope="col">value</th>
+              <th scope="col">image</th>
+              <th scope="col">rating</th>
+              <th scope="col">update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($users_data as $user_data) { ?>
 
-       <form action="addCar.php" method="post">
-    
-        
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="car Name" name="car_name" >
-          <label for="floatingInput">car name</label>
-        </div>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="km" name="car_km" >
-          <label for="floatingInput">km</label>
-        </div>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="year" name="car_year" >
-          <label for="floatingInput">year</label>
-        </div>
-        <div class="form-floating">
-          <input type="number" class="form-control" id="floatingInput" placeholder="rating" name="car_rating">
-          <label for="floatingInput">rating</label>
-        </div>
-        <div class="form-floating">
-          <input type="file" class="form-control" id="floatingInput" placeholder="Image" name="car_image" >
-          <label for="floatingInput">Image</label>
-        </div>
-        <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="value" name="car_value" >
-          <label for="floatingInput">value</label>
-        </div>
-         <button  class="w-100 btn btn-lg btn-primary" type="submit" name="submit"> Add car </button> 
-      </form>
-      
+               <tr>
+                <td><?php echo $user_data['id']; ?></td>
+                <td><?php echo $user_data['car_name']; ?></td>
+                <td><?php echo $user_data['car_km']; ?></td>
+                <td><?php echo $user_data['car_year']; ?></td>
+                <td><?php echo $user_data['car_value']; ?></td>
+                <td><?php echo $user_data['car_image']; ?></td>
+                <td><?php echo $user_data['car_rating']; ?></td>
+                <!-- If we want to update a movie we created a link which will link us in edit.php file: -->
+                <td><a href="updateCar.php?id=<?= $user_data['id'];?>">Update</a></td>
+                <!-- If we want to Delete a movie we created a link which will link us in delete.php file -->
+                <td><a href="deleteCar.php?id=<?= $user_data['id'];?>">Delete</a></td>
+              </tr>
+              
+           <?php  } ?>
+           
+            
+          </tbody>
+        </table>
       </div>
+     <?php  ?>
     </main>
   </div>
 </div>

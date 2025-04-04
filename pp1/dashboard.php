@@ -81,19 +81,7 @@ $users_data=$selectUsers->fetchAll();
           </li>
         </ul>
        
-          <li class="nav-item">
-              <a class="nav-link" href="home.php">
-               
-                cars
-              </a>
-            </li>
-          <li class="nav-item">
-          <a class="nav-link" href="bookings.php">
-            <span ></span>
-            buy car
-          </a>
-        </li>
-        </ul>
+         
      
      
 
