@@ -59,11 +59,12 @@
     </header>
 
     <section>
-        <form method="POST" action="loginlogic.php">
+        <form method="post" action="loginlogic.php">
          
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" name="submit">Log In</button>
+            
         </form>
     </section>
 

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -11,60 +12,63 @@
 	<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 	<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
 
-		html,
-	body {
-	  height: 100%;
-	}
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-	body {
-	  display: flex;
-	  align-items: center;
-	  padding-top: 40px;
-	  padding-bottom: 40px;
-	  background-color: #f5f5f5;
-	}
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
 
-	.form-signin {
-	  width: 100%;
-	  max-width: 330px;
-	  padding: 15px;
-	  margin: auto;
-	}
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #eea1c5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
 
-	.form-signin .checkbox {
-	  font-weight: 400;
-	}
-    .form-signin .form-floating:focus-within {
-	  z-index: 2;
-	}
+        button:hover {
+            background-color: #eea1c5;
+        }
 
-	.form-signin input[type="email"] {
-	  margin-bottom: -1px;
-	  border-bottom-right-radius: 0;
-	  border-bottom-left-radius: 0;
-	}
-
-	.form-signin input[type="password"] {
-	  margin-bottom: 10px;
-	  border-top-left-radius: 0;
-	  border-top-right-radius: 0;
-	}
-	.form-floating{
-		margin: 10px;
-	}
-	</style>
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-<body class="text-center">
+<body >
+<header>
+        <h1>Essence Cosmetics - Sign Up</h1>
+    </header>
 <!-- Creating a form which will post us some data in register.php file -->
 <main class="form-signin">
   <form action="register.php" method="post">
-    <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Register</h1>
+    
+ 
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="Emri" name="emri">
-      <label for="floatingInput">Emri</label>
+      <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="name">
+      <label for="floatingInput">Name</label>
     </div>
      <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
@@ -83,12 +87,8 @@
       <label for="floatingPassword">Confirm Password</label>
     </div>
 
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Sign up</button>
+   
+    <button type="submit" name="submit">Sign up</button>
     <span>Already have an account: </span><a href="login.php">Sign in</a>
   </form>
 </main>

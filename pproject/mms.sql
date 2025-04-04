@@ -3,11 +3,9 @@ CREATE TABLE users (
     id INT(11) NOT NULL AUTO_INCREMENT, 
     name VARCHAR(255) NOT NULL, 
     username VARCHAR(255) NOT NULL, 
-    surname VARCHAR(255) NOT NULL, 
     email VARCHAR(255) NOT NULL, 
     password VARCHAR(255) NOT NULL, 
-    confirm_password VARCHAR(255) NOT NULL, 
-    is_admin VARCHAR(255) NOT NULL, 
+    confirm_password VARCHAR(255) NOT NULL,  
     PRIMARY KEY (id)
 );
 
@@ -33,10 +31,10 @@ CREATE TABLE orders (
 );
 
 -- Insert Users (make sure passwords are hashed in a real scenario)
-INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `password`, `confirm_password`, `is_admin`) 
+INSERT INTO `users` (`id`, `name`,, `username`, `email`, `password`, `confirm_password`, ) 
 VALUES 
-(1, 'Melisa', 'Terstena', 'melisa2', 'melisa2@mail.com', '12345678','12345678','1'), 
-(2, 'Elona', 'Ramiqi', 'elonaramiqi', 'elonaramiqi@mail.com', '12345678','12345678','0');
+(1, 'Melisa',  'melisa2', 'melisa2@mail.com', '12345678','12345678'), 
+(2, 'Elona',  'elonaramiqi', 'elonaramiqi@mail.com', '12345678','12345678');
 
 -- Insert Products
 INSERT INTO `products` (`id`, `product_name`, `product_quality`, `product_rating`, `product_image`) 
