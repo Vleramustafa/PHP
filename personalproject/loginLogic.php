@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
         echo "Please fill out all the fields";
     }else{
         $sql="SELECT id,emri,username,surname,password FROM users WHERE username=:username";
-
+    
         $selectUser=$conn->prepare($sql);
     $selectUser->bindParam(":username",$username);
   $selectUser->execute();
