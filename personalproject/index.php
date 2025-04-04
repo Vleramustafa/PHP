@@ -34,7 +34,7 @@
 
 
             <div class="card">
-                <div class="img"><img src="e.jpg" alt=""></div>
+                <div class="img"><img src="img/e.jpg" alt=""></div>
                 <div class="desc">Women</div>
                 <div class="title">Dress</div>
                 <div class="box">
@@ -44,7 +44,7 @@
             </div>
 
             <div class="card">
-                <div class="img"><img src="images (2).jpg" alt=""></div>
+                <div class="img"><img src="img/images (2).jpg" alt=""></div>
                 <div class="desc">Men</div>
                 <div class="title">T-Shirt</div>
                 <div class="box">
@@ -54,7 +54,7 @@
             </div>
 
             <div class="card">
-                <div class="img"><img src="el.jpg" alt=""></div>
+                <div class="img"><img src="img/el.jpg" alt=""></div>
                 <div class="desc">Women</div>
                 <div class="title">Jeans</div>
                 <div class="box">

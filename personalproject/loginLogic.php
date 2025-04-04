@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     if(empty($username) || empty($password)){
         echo "Please fill out all the fields";
     }else{
-        $sql="SELECT id,name,username,surname,password,is_admin FROM users WHERE username=:username";
+        $sql="SELECT id,name,username,password,confirm_password FROM users WHERE username=:username";
 
         $selectUser=$conn->prepare($sql);
     $selectUser->bindParam(":username",$username);
@@ -27,9 +27,9 @@ if(isset($_POST['submit'])){
     $_SESSION['id']=$data['id'];
     $_SESSION['username']=$data['username'];
     $_SESSION['name']=$data['name'];
-    $_SESSION['surname']=$data['surname'];
+  
     $_SESSION['email']=$data['email'];
-    $_SESSION['is_admin']=$data['is_admin'];
+    $_SESSION['confirm_password']=$data['confirm_password'];
 
     header('Location:dashboard.php');
   }else{

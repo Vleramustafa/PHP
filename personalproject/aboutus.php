@@ -110,14 +110,14 @@
             <h2>Meet Our Team</h2>
             <div class="team-members">
                 <div class="team-member">
-                    <img src="aboutus.jpg" alt="Team Member 1">
+                    <img src="img/aboutus.jpg" alt="Team Member 1">
                     <h3>John Doe</h3>
                     <p>CEO & Founder</p>
                     <p>John has over 15 years of experience in the industry and leads <br>
                     our company with a vision of growth and success.</p>
                 </div>
                 <div class="team-member">
-                    <img src="aboutus1.jpg" alt="Team Member 2">
+                    <img src="img/aboutus1.jpg" alt="Team Member 2">
                     <h3>Jane Smith</h3>
                     <p>Manager</p>
                     <p>Jane is responsible for ensuring that the store operates efficiently, and the customers are satisfied.</p>

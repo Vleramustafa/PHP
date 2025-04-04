@@ -24,7 +24,7 @@
       align-items: center;
       padding-top: 40px;
       padding-bottom: 40px;
-      background-color: #f5f5f5;
+      background-color: lightgrey;
     }
 
 
@@ -54,13 +54,28 @@
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
+
+  button{
+    width: 100%;
+    padding: 10px;
+    background-color:  #db7c45;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  button:hover{
+    background-color:  #db7c45;
+  }
+
 	</style>
 </head>
 <body class="text-center">
 <!-- Creating a from which will post some data in loginLogic.php file -->
 <main class="form-signin">
   <form action="loginLogic.php" method="post">
-    <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+    
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
@@ -77,8 +92,8 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Sign in</button>
-	<p>Already have an account:<a href="index.php" >Sign up</a> </p>
+    <button type="submit" name="submit">Sign in</button>
+	<p>Already have an account:<a href="signup.php" >Sign up</a> </p>
   </form>
 </main>
 

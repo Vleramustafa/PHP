@@ -1,28 +1,37 @@
 <?php
+	include_once('config.php');
 
-include_once('');
+	if (isset($_POST['submit'])) {
 
-if(isset($_POST['submit']))
-{
-    $emri = $_POST['emri'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
+		$name = $_POST['name'];
+		$username = $_POST['username'];
+		$email = $_POST['email'];
 
-    $tempPass = $_POST['password'];
-    $password = password_hash($tempPass, PASSWORD_DEFAULT);
+		$tempPass = $_POST['password'];
+		$password = password_hash($tempPass, PASSWORD_DEFAULT);
 
-    $tempPass = $_POST['confirm_password'];
-    $password = password_hash($tempConfirm, PASSWORD_DEFAULT);
+		$tempConfirm = $_POST['confirm_password'];
 
-    if(empty($emri) || empty($username) || empty($email) || empty($password) || empty($confirm_password))
-    {
-        echo "You have not filled in all the fields above";
-    }
-    else
-    {
+		// Check if all required fields are filled and if passwords match
+		if (empty($name) || empty($username) || empty($email) || empty($password) || empty($tempConfirm)) {
+			echo "You have not filled in all the fields.";
+		} elseif ($tempPass !== $tempConfirm) {
+			echo "Passwords do not match.";
+		} else {
+			$sql = "INSERT INTO users(name, username, email, password) VALUES (:name, :username, :email, :password)";
+			
+			$insertSql = $conn->prepare($sql);
 
-        $sql = "INSERT INTO users(emri,username,email,password,confirm_password) VALUES (:emri,:username,:email,:password,:confirm_password)";
+			$insertSql->bindParam(':name', $name);
+			$insertSql->bindParam(':username', $username);
+			$insertSql->bindParam(':email', $email);
+			$insertSql->bindParam(':password', $password);
 
-        $insertSql = $conn
-    }
-}
+			
+
+			header("Location: login.php");
+			exit(); 
+		}
+	}
+?>
+
