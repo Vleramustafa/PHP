@@ -65,22 +65,22 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-6">
-                            <div class="white-box text-center" style="width: 100%;height: 100%;">
-                                <img src="book_images/<?php echo $book_data['book_cover']; ?>" class="img-responsive" style="width: 70%; height: 90%;">
+                            <div class="white-box text-center">
+                                <img src="img/book1.jpg"<?php echo $book_data['book_cover']; ?>" class="img-responsive" style="width: 70%; height: 20%;">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-6">
                             <h4 class="box-title mt-5"><?php echo $book_data['book_title']; ?></h4>
                             <h6 class="text-muted"><?php echo $book_data['book_author']; ?></h6>
                             <p><?php echo $book_data['book_desc']; ?></p>
-                            <p class="text-muted"><small>Price: <?php echo $book_data['book_price']; ?></small></p>
+                            <p class="text-muted"><small>Price: <?php echo $book_data['book_price']; ?> €</small></p>
                             <form action="order.php" method="post">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="quantity" placeholder="Quantity" name="book_quantity">
+                                    <input type="number" class="form-control" id="quantity" placeholder="Quantity" name="quantity">
                                     <label for="quantity">Quantity</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="date" class="form-control" id="date" placeholder="Date" name="date">
+                                    <input type="date" class="form-control" id="date" placeholder="Date" name="order_date">
                                     <label for="date">Order date</label>
                                 </div>
                                 <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Order</button>

@@ -4,7 +4,7 @@
     if(isset($_POST['submit'])){
         $id=$_POST['id'];
         $name=$_POST['name'];
-        $usurname=$_POST['surname'];
+        $surname=$_POST['surname'];
         $email=$_POST['email'];
         
         $sql="UPDATE users SET id=:id,name=:name, surname=:surname,email=:email WHERE id=:id";

@@ -114,14 +114,14 @@ session_start();
                                 <a class="nav-link" href="list_books.php">Books</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="orders.php">Orders</a>
+                                <a class="nav-link" href="ordering.php">Orders</a>
                             </li>
                        
                             <li class="nav-item">
                                 <a class="nav-link" href="home.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="orders.php">Orders</a>
+                                <a class="nav-link" href="ordering.php">Orders</a>
                             </li>
                         
                     </ul>
