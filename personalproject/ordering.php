@@ -67,7 +67,7 @@ if ($_SESSION['is_admin'] == 'true') {
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
       <ul class="nav flex-column">
-           <?php if ($_SESSION['is_admin'] == 'true') { ?>
+          
             <li class="nav-item">
               <a class="nav-link" href="home.php">
                 <span data-feather="file"></span>
@@ -95,7 +95,7 @@ if ($_SESSION['is_admin'] == 'true') {
           </li>
 
 
-          <?php }else{ ?>
+
           <li class="nav-item">
               <a class="nav-link" href="home.php">
                 <span data-feather="file"></span>
@@ -112,7 +112,6 @@ if ($_SESSION['is_admin'] == 'true') {
         </ul>
 
 
-        <?php }?>
         
       </div>
     </nav>
@@ -134,15 +133,15 @@ if ($_SESSION['is_admin'] == 'true') {
         
               <th scope="col">Book Title</th>
               <th scope="col">User Email</th>
-              <th scope="col">Book Quantity</th>
-              <th scope="col">Date</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Order Date</th>
               <th scope="col">Approved</th>
 
 
             </tr>
           </thead>
           <tbody>
-          <?php if ($_SESSION['is_admin'] == 'true') { ?>
+            
             <?php foreach ($ordering_data as $orders_data) { ?>
                 
                <tr>
@@ -160,7 +159,7 @@ if ($_SESSION['is_admin'] == 'true') {
                 <td><a href="decline.php?id=<?= $orders_data['id'];?>">Decline</a></td>
               </tr>
               
-           <?php }}else{ ?>
+        
             <?php foreach ($ordering_data as $orders_data) { ?>
             <tr>
             <td><?php echo $orders_data['book_title']; ?></td>

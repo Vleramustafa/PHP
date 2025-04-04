@@ -23,6 +23,15 @@ $books_data = $selectBooks->fetchAll();
             cursor: pointer;
             width: 100%;
         }
+        .navbar-brand{
+            color: #bf160a;
+            font-weight: bold;
+        }
+        .nav-link:hover{
+            background-color: #bf160a;
+            color: white;
+            font-weight: bold;
+        }
         .order-btn:hover {
             background-color: darkred;
         }
@@ -31,7 +40,7 @@ $books_data = $selectBooks->fetchAll();
             color: gray;
         }
         .btn-group .btn {
-            width: 48%;
+            width: 70%;
         }
     </style>
 </head>
@@ -46,7 +55,7 @@ $books_data = $selectBooks->fetchAll();
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ordering.php">Orders</a></li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="signup.php">Sign Up</a></li>

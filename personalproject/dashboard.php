@@ -103,7 +103,7 @@ session_start();
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
-                       <?php if ($_SESSION['is_admin'] == 'true') { ?>
+                 
                             <li class="nav-item">
                                 <a class="nav-link" href="home.php">Home</a>
                             </li>
@@ -116,14 +116,14 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="orders.php">Orders</a>
                             </li>
-                        <?php } else { ?>
+                       
                             <li class="nav-item">
                                 <a class="nav-link" href="home.php">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="orders.php">Orders</a>
                             </li>
-                        <?php } ?>
+                        
                     </ul>
                 </div>
             </nav>
@@ -135,7 +135,7 @@ session_start();
                         <h1 class="h2">Dashboard</h1>
                     </div>
 
-                    <?php if ($_SESSION['is_admin'] == 'true') { ?>
+          
                         <!-- Users Table -->
                         <h2>Users</h2>
                         <div class="table-responsive">
@@ -164,7 +164,7 @@ session_start();
                                 </tbody>
                             </table>
                         </div>
-                    <?php } ?>
+                 
                 </div>
             </main>
         </div>
