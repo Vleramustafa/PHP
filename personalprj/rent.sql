@@ -10,3 +10,14 @@ CREATE TABLE users (
 )
 
 ALTER TABLE users ADD PRIMARY KEY (id)
+
+
+
+CREATE TABLE bookings(
+ id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ user_id int(11) NOT NULL,
+ car_id int(11) NOT NULL,
+ nr_days int(255) NOT NULL,
+ price varchar(255) NOT NULL,
+ date varchar(255) NOT NULL
+ );

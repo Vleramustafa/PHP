@@ -94,8 +94,8 @@ $users_data=$selectUsers->fetchAll();
 
     
 
-      <h2>Movies</h2>
-      <a href="movies.php" class="btn btn-primary">Add Movie</a>
+      <h2>Avalible cars</h2>
+      <a href="cars.php" class="btn btn-primary">Add car</a>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -116,10 +116,9 @@ $users_data=$selectUsers->fetchAll();
                 <td><?php echo $user_data['id']; ?></td>
                 <td><?php echo $user_data['Name']; ?></td>
                 <td><?php echo $user_data['Engine']; ?></td>
-                <td><?php echo $user_data['Gas power']; ?></td>
+                <td><?php echo $user_data['Gas_power']; ?></td>
                 <td><?php echo $user_data['Gear']; ?></td>
                 <td><?php echo $user_data['Hp']; ?></td>
-                <td><?php echo $user_data['img']; ?></td>
                 <!-- If we want to update a movie we created a link which will link us in edit.php file: -->
                 <td><a href="edit.php?id=<?= $user_data['id'];?>">Update</a></td>
                 <!-- If we want to Delete a movie we created a link which will link us in delete.php file -->

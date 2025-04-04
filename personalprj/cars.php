@@ -1,22 +1,13 @@
-<?php
+<?php 
+/*Creating a session  based on a session identifier, passed via a GET or POST request.
+  Creating a form which users will use to give some movie data, then we will post those datas into addMovie.php file
+*/
 
-session_start();
+  session_start();
 
-include_once('config.php');
-if(empty($_SESSION['username'])){
-    header('Location:login.php');
-}
+ ?>
 
-$sql="SELECT * FROM users";
-$selectUsers=$conn->prepare($sql);
-$selectUsers->execute();
-
-$users_data=$selectUsers->fetchAll();
-?>
-
-
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
  <html>
  <head>
  	<title>Dashboard</title>
@@ -32,6 +23,12 @@ $users_data=$selectUsers->fetchAll();
 	<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 	<meta name="theme-color" content="#7952b3">
+
+  <style>
+    #floatingInput{
+      margin: 20px 0px;
+    }
+  </style>
  </head>
  <body>
  
@@ -53,8 +50,8 @@ $users_data=$selectUsers->fetchAll();
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-
+      <ul class="nav flex-column">
+           
             <li class="nav-item">
               <a class="nav-link" href="home.php">
                 <span data-feather="file"></span>
@@ -73,6 +70,7 @@ $users_data=$selectUsers->fetchAll();
               Movies
             </a>
           </li>
+       
           <li class="nav-item">
             <a class="nav-link" href="bookings.php">
               <span ></span>
@@ -80,24 +78,8 @@ $users_data=$selectUsers->fetchAll();
             </a>
           </li>
         </ul>
-      
-          <li class="nav-item">
-              <a class="nav-link" href="home.php">
-               
-                Home
-              </a>
-            </li>
-          <li class="nav-item">
-          <a class="nav-link" href="bookings.php">
-            <span ></span>
-            Bookings
-          </a>
-        </li>
-        </ul>
-     
- 
 
-        
+    
       </div>
     </nav>
 
@@ -107,42 +89,52 @@ $users_data=$selectUsers->fetchAll();
         
       </div>
 
+    
 
-
-      <h2>Users</h2>
+     
+      <h2>Edit cars's details</h2>
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Emri</th>
-              <th scope="col">Username</th>
-              <th scope="col">Email</th>
-              <th scope="col">Update</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($users_data as $user_data) { ?>
+        
+        <form action="addCars.php" method="post">
+        <div class="form-floating">
+          <input readonly="readonly" type="text" class="form-control" id="floatingInput" placeholder="id" name="id">
+          <label for="floatingInput">ID</label>
+        </div>
+    
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="Name" >
+          <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Engine" name="Engine">
+          <label for="floatingInput">Engine</label>
+        </div>
 
-               <tr>
-                <td><?php echo $user_data['id']; ?></td>
-                <td><?php echo $user_data['name']; ?></td>
-                <td><?php echo $user_data['username']; ?></td>
-                <td><?php echo $user_data['email']; ?></td>
-                <!-- If we want to update a user we need to link into editUsers.php -->
-                <td><a href="editUsers.php?id=<?= $user_data['id'];?>">Update</a></td>
-                  <!-- If we want to delete a user we need to link into deleteUsers.php -->
-                <td><a href="deleteUsers.php?id=<?= $user_data['id'];?>">Delete</a></td>
-              </tr>
-              
-           <?php  } ?>
-           
-            
-          </tbody>
-        </table>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Gas_power" name="Gas_power" >
+          <label for="floatingInput">Gas_power</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Gear" name="Gear" >
+          <label for="floatingInput">Gear</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Hp" name="Hp" >
+          <label for="floatingInput">Hp</label>
+        </div>
+
+        <br>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit1">Add</button>
+      </form>
+
+
+
       </div>
 
+      
+      </div>
     </main>
   </div>
 </div>
