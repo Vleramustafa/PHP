@@ -1,22 +1,13 @@
-<?php
+<?php 
+/*Creating a session  based on a session identifier, passed via a GET or POST request.
+  Creating a form which users will use to give some movie data, then we will post those datas into addMovie.php file
+*/
 
-session_start();
+  session_start();
 
-include_once('config.php');
-if(empty($_SESSION['username'])){
-    header('Location:login.php');
-}
+ ?>
 
-$sql="SELECT * FROM users";
-$selectUsers=$conn->prepare($sql);
-$selectUsers->execute();
-
-$users_data=$selectUsers->fetchAll();
-?>
-
-
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
  <html>
  <head>
  	<title>Dashboard</title>
@@ -32,6 +23,12 @@ $users_data=$selectUsers->fetchAll();
 	<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 	<meta name="theme-color" content="#7952b3">
+
+  <style>
+    #floatingInput{
+      margin: 20px 0px;
+    }
+  </style>
  </head>
  <body>
  
@@ -53,8 +50,8 @@ $users_data=$selectUsers->fetchAll();
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-        
+      <ul class="nav flex-column">
+
             <li class="nav-item">
               <a class="nav-link" href="home.php">
                 <span data-feather="file"></span>
@@ -68,36 +65,21 @@ $users_data=$selectUsers->fetchAll();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list_cars.php">
+            <a class="nav-link" href="list_movies.php">
               <span data-feather="file"></span>
-             Cars
+              cars
             </a>
           </li>
+        <?php  ?>
           <li class="nav-item">
             <a class="nav-link" href="bookings.php">
               <span ></span>
-             buy car
+              buy cars
             </a>
           </li>
         </ul>
-       
-          <li class="nav-item">
-              <a class="nav-link" href="home.php">
-               
-                cars
-              </a>
-            </li>
-          <li class="nav-item">
-          <a class="nav-link" href="bookings.php">
-            <span ></span>
-            buy car
-          </a>
-        </li>
-        </ul>
-     
-     
 
-        
+    
       </div>
     </nav>
 
@@ -107,42 +89,41 @@ $users_data=$selectUsers->fetchAll();
         
       </div>
 
-
-
-      <h2>Users</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Emri</th>
-              <th scope="col">Username</th>
-              <th scope="col">Email</th>
-              <th scope="col">Update</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($users_data as $user_data) { ?>
-
-               <tr>
-                <td><?php echo $user_data['id']; ?></td>
-                <td><?php echo $user_data['name']; ?></td>
-                <td><?php echo $user_data['username']; ?></td>
-                <td><?php echo $user_data['email']; ?></td>
-                <!-- If we want to update a user we need to link into editUsers.php -->
-                <td><a href="editUsers.php?id=<?= $user_data['id'];?>">Update</a></td>
-                  <!-- If we want to delete a user we need to link into deleteUsers.php -->
-                <td><a href="deleteUsers.php?id=<?= $user_data['id'];?>">Delete</a></td>
-              </tr>
-              
-           <?php  } ?>
-           
-            
-          </tbody>
-        </table>
-      </div>
     
+
+      <h2>cars</h2>
+
+       <form action="addMovie.php" method="post">
+    
+        
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="car Name" name="car_name" >
+          <label for="floatingInput">car name</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="km" name="car_km" >
+          <label for="floatingInput">km</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="year" name="car_year" >
+          <label for="floatingInput">year</label>
+        </div>
+        <div class="form-floating">
+          <input type="number" class="form-control" id="floatingInput" placeholder="rating" name="car_rating">
+          <label for="floatingInput">rating</label>
+        </div>
+        <div class="form-floating">
+          <input type="file" class="form-control" id="floatingInput" placeholder="Image" name="car_image" >
+          <label for="floatingInput">Image</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="value" name="car_value" >
+          <label for="floatingInput">value</label>
+        </div>
+         <button  class="w-100 btn btn-lg btn-primary" type="submit" name="submit"> Add car </button> 
+      </form>
+      
+      </div>
     </main>
   </div>
 </div>
@@ -156,7 +137,3 @@ $users_data=$selectUsers->fetchAll();
 
  </body>
  </html>
-
-
-
-
