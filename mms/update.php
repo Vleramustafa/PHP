@@ -17,7 +17,7 @@ if(isset($_POST['submit1'])){
     $prep->bindParam(':movie_rating',$movie_rating);
 
     $prep->execute();
-    header('Location:home.php'):
+    header('Location:home.php');
 
 }
 

@@ -7,6 +7,6 @@ CREATE TABLE GymEquipment(
 )
 
 INSERT INTO `gym` (`id`, `gymEquipment_name`, `gymEquipment_desc`, `gymEquipment_rating`, `gymEquipment_image`) VALUES
-(1, 'Compression Shirt','desc', 10/10, 'compressionshirt.png'),
-(2, 'Bench Press', 'desc', 7/10, 'benchpress.webp'),
-(3, 'Treadmill', 'desc', 7, 'treadmill.webp');
+(1, 'Compression Shirt','desc', 10/10, 'images/compressionshirt.png'),
+(2, 'Bench Press', 'desc', 7/10, 'images/benchpress.webp'),
+(3, 'Treadmill', 'desc', 7, 'images/treadmill.webp');
