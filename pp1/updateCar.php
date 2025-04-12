@@ -3,6 +3,7 @@
 We will get the changed data from edit.php file and update them into database
 */
 	include_once('config.php');
+
 	
 
 
@@ -16,17 +17,18 @@ We will get the changed data from edit.php file and update them into database
     $car_image = $_POST['car_image'];
 		
 
-    $sql = "UPDATE cars SET id=:id,  car_name=:car_name, car_km=:car_km, car_year=:car_year,car_value=:car_value, car_image:car_image,car_value:car_value WHERE id=:id";
+$sql = "UPDATE cars SET car_name=:car_name, car_km=:car_km, car_year=:car_year, car_rating=:car_rating, car_image=:car_image, car_value=:car_value WHERE id=:id";
 $insertcars = $conn->prepare($sql);
 
-		$prep->bindParam(':car_name', $car_name);
-    $prep->bindParam(':car_km', $car_km);
-    $prep->bindParam(':car_year', $car_year);
-    $prep->bindParam(':car_rating', $car_rating);
-    $prep->bindParam(':car_image', $car_image);
-    $prep->bindParam(':car_value', $car_value);
+$insertcars->bindParam(':id', $id);
+$insertcars->bindParam(':car_name', $car_name);
+$insertcars->bindParam(':car_km', $car_km);
+$insertcars->bindParam(':car_year', $car_year);
+$insertcars->bindParam(':car_rating', $car_rating);
+$insertcars->bindParam(':car_image', $car_image);
+$insertcars->bindParam(':car_value', $car_value);
 		
-		$prep->execute();
+		$insertcars->execute();
 		header("Location: list_cars.php");
 	}
  ?>
