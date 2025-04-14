@@ -74,7 +74,7 @@ $users_data=$selectUsers->fetchAll();
           </li>
         <?php  ?>
           <li class="nav-item">
-            <a class="nav-link" href="bookings.php">
+            <a class="nav-link" href="buy_car.php">
               <span ></span>
               buy car
             </a>

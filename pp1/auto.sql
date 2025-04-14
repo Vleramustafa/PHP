@@ -21,3 +21,12 @@ id int(11) NOT NULL,
      car_value varchar(255) NOT NULL
 )
 ALTER TABLE cars ADD PRIMARY KEY (id);
+
+CREATE TABLE buy_car(
+  id int(11) NOT NULL,
+    car_name varchar(255) NOT NULL,
+    car_value varchar(255) NOT NULL,
+    user_adress varchar(255) NOT NULL,
+    user_phoneNumber varchar(255) NOT NULL,
+);
+ALTER TABLE buy_car ADD PRIMARY KEY (id);
