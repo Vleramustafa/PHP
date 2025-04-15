@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_phoneNumber = $_POST['user_phoneNumber'];
 
     // Simulate saving the purchase to a database
-    $message = "Thank you,$_SESSION['username'] ! Your purchase of the $car_name has been confirmed.";
+    $message = "Thank you, $car_name has been successfully purchased!";
 }
 ?>
 

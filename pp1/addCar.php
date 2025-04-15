@@ -1,4 +1,5 @@
-<?php    
+<?php
+ob_start(); // Start output buffering
 
 // Including config.php file for connection with database
 include_once('config.php');
@@ -30,10 +31,18 @@ if(isset($_POST['submit']))
     $insertcars->bindParam(':car_value', $car_value);
 
     // Execute the query
-    $insertcars->execute();
+    try {
+        $insertcars->execute();
+    } catch (PDOException $e) {
+        // Log the error message and stop execution
+        echo "Error: " . $e->getMessage();
+        exit();
+    }
 
     // Redirect to cars.php after insertion
     header("Location: list_cars.php");
-    exit(); // Always call exit after header to stop further script execution
-}
+    exit();}?> // Always call exit after header to stop further script execution
+<?php
+ob_end_flush(); // End output buffering and flush output
+?>
 ?>
