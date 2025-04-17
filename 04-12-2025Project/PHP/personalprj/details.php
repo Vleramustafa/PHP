@@ -111,9 +111,18 @@
                       <label for="floatingInput">Date</label>
                     </div>
                     <div class="form-floating">
-                      <input type="price" class="form-control" id="floatingInput" placeholder="price" name="price" >
+                      <?php if ($id == 1): ?>
+                        <input type="number" class="form-control" id="floatingInput" placeholder="price" name="price" value="302" step="0.01" min="0" readonly>
+                      <?php elseif ($id == 2): ?>
+                        <input type="number" class="form-control" id="floatingInput" placeholder="price" name="price" value="502" step="0.01" min="0" readonly>
+                      <?php elseif ($id == 3): ?>
+                        <input type="number" class="form-control" id="floatingInput" placeholder="price" name="price" value="670" step="0.01" min="0" readonly>
+                      <?php else: ?>
+                        <input type="number" class="form-control" id="floatingInput" placeholder="price" name="price" value="100" step="0.01" min="0">
+                      <?php endif; ?>
                       <label for="floatingInput">price</label>
                     </div>
+                   
 
                     <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Book</button>
                   </form>

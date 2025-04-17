@@ -93,13 +93,13 @@
 
             <div class="card-body">
               <h4><?php echo $movie_data['Name']; ?></h4>
-              <p class="card-text"><?php echo $movie_data['Hp']; ?></p>
+              <p class="card-text">Hp:<?php echo $movie_data['Hp']; ?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a href="details.php?id=<?php echo $movie_data['id']; ?>"  class="btn btn-sm btn-outline-secondary" >View</a>
                   <a href="edit.php?id=<?php echo $movie_data['id']; ?>"  class="btn btn-sm btn-outline-secondary">Edit</a>
                 </div>
-                <small class="text-muted">Rating: <?php echo $movie_data['Engine']; ?></small>
+                <small class="text-muted">Engine: <?php echo $movie_data['Engine']; ?></small>
                 <small class="text-muted"><?php echo $movie_data['Gear']; ?></small>
               </div>
             </div>
