@@ -28,5 +28,6 @@ CREATE TABLE buy_car(
     car_value varchar(255) NOT NULL,
     user_adress varchar(255) NOT NULL,
     user_phoneNumber varchar(255) NOT NULL,
+    payment_method varchar(255) NOT NULL,
 );
 ALTER TABLE buy_car ADD PRIMARY KEY (id);

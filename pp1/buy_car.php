@@ -1,13 +1,15 @@
 <?php
-if(empty($_SESSION['username'])){
-    header('Location:login.php');
-}
+session_start();
+
+include_once('config.php');
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $car_name = $_POST['car_name'];
     $car_value = $_POST['car_value'];
     $user_adress = $_POST['user_adress'];
     $user_phoneNumber = $_POST['user_phoneNumber'];
+    $payment_method = $_POST['payment_method'];
 
     // Simulate saving the purchase to a database
     $message = "Thank you, $car_name has been successfully purchased!";
@@ -56,18 +58,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <h1>Buy Your Dream Car</h1>
     <form method="POST" action="">
-        <label for="buyer_name">Your Name:</label>
-        <input type="text" id="buyer_name" name="buyer_name" required>
+    <label for="car_value">Car Value ($):</label>
+    <input type="number" id="car_value" name="car_value" required>
 
-        <label for="buyer_email">Your Email:</label>
-        <input type="email" id="buyer_email" name="buyer_email" required>
+    <label for="user_adress">Your Address:</label>
+    <input type="text" id="user_adress" name="user_adress" required>
 
-        <label for="car_model">Select Car Model:</label>
-        <select id="car_model" name="car_model" required>
-            <option value="Tesla Model S">Tesla Model S</option>
-            <option value="Ford Mustang">Ford Mustang</option>
-            <option value="Chevrolet Camaro">Chevrolet Camaro</option>
-            <option value="BMW 3 Series">BMW 3 Series</option>
+    <label for="user_phoneNumber">Your Phone Number:</label>
+    <input type="tel" id="user_phoneNumber" name="user_phoneNumber" required>
+
+    <label for="payment_method">Payment Method:</label>
+    <select id="payment_method" name="payment_method" required>
+        <option value="credit_card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="bank_transfer">Bank Transfer</option>
+    </select>
+
+        <select id="car_name" name="car_name"  required>
+            <option value="BMW">BMW X6</option>
+            <option value="AUDI">AUDI R8</option>
+            <option value="MERCEDES">MERCEDES GLC</option>
+            <option value="PORSCHE">PORSCHE 911</option>
         </select>
 
         <button type="submit">Buy Now</button>
