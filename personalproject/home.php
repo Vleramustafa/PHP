@@ -71,7 +71,9 @@ $books_data = $selectBooks->fetchAll();
             <?php foreach ($books_data as $book) { ?>
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="img/book1.jpg"<?php echo $book['book_cover']; ?>" class="card-img-top" alt="<?php echo $book['book_title']; ?>">
+                    <img src="img/<?php echo htmlspecialchars($book['book_cover']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($book['book_title']); ?>">
+
+
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $book['book_title']; ?></h5>
                             <p class="card-text"><?php echo $book['book_author']; ?></p>

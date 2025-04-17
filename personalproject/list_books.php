@@ -102,7 +102,7 @@ $users_data=$selectUsers->fetchAll();
     <?php if ($_SESSION['is_admin'] == 'true') { ?>
 
 
-        <h2>Books</h2>
+        <h2>Movies</h2>
       <a href="books.php" class="btn btn-primary">Add Book</a>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
