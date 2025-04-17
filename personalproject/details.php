@@ -66,7 +66,8 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-6">
                             <div class="white-box text-center">
-                                <img src="img/book1.jpg"<?php echo $book_data['book_cover']; ?>" class="img-responsive" style="width: 70%; height: 20%;">
+                            <img src="img/<?php echo htmlspecialchars($book_data['book_cover']); ?>" class="img-responsive" style="width: 70%; height: 20%;">
+
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-6">

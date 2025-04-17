@@ -68,6 +68,7 @@ $books_data = $selectBooks->fetchAll();
     <div class="container mt-4">
         <h2>Best Sellers</h2>
         <div class="row">
+            
             <?php foreach ($books_data as $book) { ?>
                 <div class="col-md-3">
                     <div class="card">

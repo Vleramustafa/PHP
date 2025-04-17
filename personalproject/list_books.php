@@ -56,7 +56,7 @@ $users_data=$selectUsers->fetchAll();
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
       <ul class="nav flex-column">
-           <?php if ($_SESSION['is_admin'] == 'true') { ?>
+  
             <li class="nav-item">
               <a class="nav-link" href="home.php">
                 <span data-feather="file"></span>
@@ -77,7 +77,6 @@ $users_data=$selectUsers->fetchAll();
           </li>
 
 
-          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" href="ordering.php">
               <span ></span>
@@ -99,8 +98,7 @@ $users_data=$selectUsers->fetchAll();
       </div>
 
 
-    <?php if ($_SESSION['is_admin'] == 'true') { ?>
-
+  
 
         <h2>Movies</h2>
       <a href="books.php" class="btn btn-primary">Add Book</a>
@@ -136,7 +134,7 @@ $users_data=$selectUsers->fetchAll();
           </tbody>
         </table>
       </div>
-     <?php } ?>
+ 
     </main>
   </div>
 </div>
