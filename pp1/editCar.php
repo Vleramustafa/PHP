@@ -89,20 +89,20 @@ $user_data=$selectUser->fetch();
         </div>
     
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="movie_name" name="movie_name" value="<?php echo  $user_data['movie_name'] ?>">
+          <input type="text" class="form-control" id="floatingInput" placeholder="movie_name" name="car_name" value="<?php echo  $user_data['car_name'] ?>">
           <label for="floatingInput">Movie Name</label>
         </div>
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Movie Description" name="movie_desc" value="<?php echo  $user_data['movie_desc'] ?>">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Movie Description" name="car_km" value="<?php echo  $user_data['car_km'] ?>">
           <label for="floatingInput">Movie Description</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Movie Quality" name="movie_quality" value="<?php echo  $user_data['movie_quality'] ?>">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Movie Quality" name="car_year" value="<?php echo  $user_data['car_year'] ?>">
           <label for="floatingInput">Movie Quality</label>
         </div>
         <div class="form-floating">
-          <input type="number" class="form-control" id="floatingInput" placeholder="Movie Rating" name="movie_rating" value="<?php echo  $user_data['movie_rating'] ?>">
+          <input type="number" class="form-control" id="floatingInput" placeholder="Movie Rating" name="car_rating" value="<?php echo  $user_data['car_rating'] ?>">
           <label for="floatingInput">Movie Rating</label>
         </div>
         <br>

@@ -1,7 +1,12 @@
 <?php 
+session_start();
+
+include_once('config.php');
 /*
 We will get the changed data from edit.php file and update them into database
 */
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
 	include_once('config.php');
 
 	
