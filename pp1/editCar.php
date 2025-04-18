@@ -82,7 +82,7 @@ $user_data=$selectUser->fetch();
       <h2>Edit movie's details</h2>
       <div class="table-responsive">
         
-        <form action="update.php" method="post">
+        <form action="updateCar.php" method="post">
         <div class="form-floating">
           <input readonly="readonly" type="text" class="form-control" id="floatingInput" placeholder="id" name="id" value="<?php echo  $user_data['id'] ?>">
           <label for="floatingInput">ID</label>

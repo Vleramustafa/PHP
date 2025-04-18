@@ -122,7 +122,7 @@ $users_data=$selectUsers->fetchAll();
                 <td><?php echo $user_data['car_image']; ?></td>
                 <td><?php echo $user_data['car_rating']; ?></td>
                 <!-- If we want to update a movie we created a link which will link us in edit.php file: -->
-                <td><a href="updateCar.php?id=<?= $user_data['id'];?>">Update</a></td>
+                <td><a href="editCar.php?id=<?= $user_data['id'];?>">Update</a></td>
                 <!-- If we want to Delete a movie we created a link which will link us in delete.php file -->
                 <td><a href="deleteCar.php?id=<?= $user_data['id'];?>">Delete</a></td>
               </tr>
