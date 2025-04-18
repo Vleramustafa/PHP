@@ -63,12 +63,16 @@
     <h1 class="h3 mb-3 fw-normal">Register</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="Emri" name="emri">
-      <label for="floatingInput">Emri</label>
+      <input type="text" class="form-control" id="floatingInput" placeholder="name" name="name">
+      <label for="floatingInput">Name</label>
     </div>
      <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
       <label for="floatingInput">Username</label>
+    </div>
+	<div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="surname" name="surname">
+      <label for="floatingInput">surname</label>
     </div>
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email">
@@ -78,10 +82,7 @@
       <input type="password" class="form-control" id="floatingInput" placeholder="Password" name="password">
       <label for="floatingInput">Password</label>
     </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Confirm Password" name="confirm_password">
-      <label for="floatingPassword">Confirm Password</label>
-    </div>
+
 
     <div class="checkbox mb-3">
       <label>
