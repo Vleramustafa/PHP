@@ -1,5 +1,37 @@
 <?php
  session_start();
+ 
+session_start();
+
+// Connect to database
+$conn = new mysqli("localhost", "root", "", "pp");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$products = [];
+
+$sql = "SELECT product_name, product_quality, product_rating, product_image FROM products";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $products[] = [
+            'name' => $row['product_name'],
+            'description' => $row['product_quality'],
+            'price' => (float)$row['product_rating'],
+            'image' => $row['product_image']
+        ];
+    }
+}
+
+$conn->close();
+
+
+
+
 ?>
 
 <!DOCTYPE html>

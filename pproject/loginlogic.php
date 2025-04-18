@@ -4,7 +4,7 @@ include_once('config.php');
 
 if(isset($_POST['submit'])){
     // Debugging
-    var_dump($_POST);  // Check what data is being sent
+    //var_dump($_POST);  // Check what data is being sent
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -18,22 +18,22 @@ if(isset($_POST['submit'])){
         $selectUser->execute();
         $data = $selectUser->fetch();
 
-        if($data == false){
-            echo "The user does not exist";
-        } else {
-            if(password_verify($password, $data['password'])){
-                $_SESSION['id'] = $data['id'];
-                $_SESSION['username'] = $data['username'];
-                $_SESSION['name'] = $data['name'];
-                $_SESSION['email'] = $data['email'];  // Ensure 'email' column exists in DB
+       // if($data == false){
+        //     echo "The user does not exist";
+        // } else {
+        //     if(password_verify($password, $data['password'])){
+        //         $_SESSION['id'] = $data['id'];
+        //         $_SESSION['username'] = $data['username'];
+        //         $_SESSION['name'] = $data['name'];
+        //         $_SESSION['email'] = $data['email'];  // Ensure 'email' column exists in DB
 
                 // Redirect to dashboard
                 header('Location: dashboard.php');
                 exit();  // Ensure script stops executing after redirect
-            } else {
-                echo "The password is not valid";
-            }
+            // } else {
+            //     echo "The password is not valid";
+            // }
         }
     }
-}
+//}
 ?>

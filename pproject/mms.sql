@@ -31,7 +31,7 @@ CREATE TABLE orders (
 );
 
 -- Insert Users (make sure passwords are hashed in a real scenario)
-INSERT INTO `users` (`id`, `name`,, `username`, `email`, `password`, `confirm_password`, ) 
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `confirm_password` ) 
 VALUES 
 (1, 'Melisa',  'melisa2', 'melisa2@mail.com', '12345678','12345678'), 
 (2, 'Elona',  'elonaramiqi', 'elonaramiqi@mail.com', '12345678','12345678');
