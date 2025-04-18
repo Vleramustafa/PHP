@@ -3,20 +3,19 @@
 session_start();
 
 include_once('config.php');
+
 if(empty($_SESSION['username'])){
     header('Location:login.php');
 }
 
-$sql="SELECT * FROM users";
+$sql="SELECT * FROM movies";
 $selectUsers=$conn->prepare($sql);
 $selectUsers->execute();
 
 $users_data=$selectUsers->fetchAll();
+
 ?>
-
-
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
  <html>
  <head>
  	<title>Dashboard</title>
@@ -53,7 +52,8 @@ $users_data=$selectUsers->fetchAll();
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
+      <ul class="nav flex-column">
+           <?php if ($_SESSION['is_admin'] == 'true') { ?>
             <li class="nav-item">
               <a class="nav-link" href="home.php">
                 <span data-feather="file"></span>
@@ -67,35 +67,21 @@ $users_data=$selectUsers->fetchAll();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list_clothes.php">
+            <a class="nav-link" href="list.Clothes.php">
               <span data-feather="file"></span>
               Clothes
             </a>
           </li>
+        <?php } ?>
           <li class="nav-item">
-            <a class="nav-link" href="orders.php">
+            <a class="nav-link" href="bookings.php">
               <span ></span>
-              Orders
+              Bookings
             </a>
           </li>
         </ul>
-          <li class="nav-item">
-              <a class="nav-link" href="index.php">
-               
-                Home
-              </a>
-            </li>
-          <li class="nav-item">
-          <a class="nav-link" href="orders.php">
-            <span ></span>
-            Orders
-          </a>
-        </li>
-        </ul>
-      <?php
-      ?>
 
-        
+       
       </div>
     </nav>
 
@@ -105,9 +91,10 @@ $users_data=$selectUsers->fetchAll();
         
       </div>
 
-    
+    <?php if ($_SESSION['is_admin'] == 'true') { ?>
 
-      <h2>Users</h2>
+      <h2>Movies</h2>
+      <a href="movies.php" class="btn btn-primary">Add Movie</a>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -125,13 +112,13 @@ $users_data=$selectUsers->fetchAll();
 
                <tr>
                 <td><?php echo $user_data['id']; ?></td>
-                <td><?php echo $user_data['name']; ?></td>
-                <td><?php echo $user_data['username']; ?></td>
-                <td><?php echo $user_data['email']; ?></td>
-                <!-- If we want to update a user we need to link into editUsers.php -->
-                <td><a href="editUsers.php?id=<?= $user_data['id'];?>">Update</a></td>
-                  <!-- If we want to delete a user we need to link into deleteUsers.php -->
-                <td><a href="deleteUsers.php?id=<?= $user_data['id'];?>">Delete</a></td>
+                <td><?php echo $user_data['movie_name']; ?></td>
+                <td><?php echo $user_data['movie_desc']; ?></td>
+                <td><?php echo $user_data['movie_quality']; ?></td>
+                <!-- If we want to update a movie we created a link which will link us in edit.php file: -->
+                <td><a href="edit.php?id=<?= $user_data['id'];?>">Update</a></td>
+                <!-- If we want to Delete a movie we created a link which will link us in delete.php file -->
+                <td><a href="delete.php?id=<?= $user_data['id'];?>">Delete</a></td>
               </tr>
               
            <?php  } ?>
@@ -140,6 +127,7 @@ $users_data=$selectUsers->fetchAll();
           </tbody>
         </table>
       </div>
+     <?php } ?>
     </main>
   </div>
 </div>

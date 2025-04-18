@@ -55,7 +55,8 @@ body{
     border-bottom: 4px solid #db7c45;
 }
 
-.content{
+
+.content { 
     background-image: url('photo(1).webp');
     background-size: cover;
     background-repeat: no-repeat;
@@ -67,6 +68,7 @@ body{
     color: grey;
     height: 100vh; 
 }
+
 
 .content h1{
     font-size: 40px;
