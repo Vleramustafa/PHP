@@ -6,9 +6,11 @@ include_once('config.php');
 $user_id = $_SESSION['id'];
 
 // Query to fetch orders
-$sql = "SELECT books.book_title, users.email, orders.id, orders.quantity, orders.order_date FROM books
+$sql = "SELECT books.book_title, users.email, orders.id, orders.quantity, orders.order_date, orders.is_approved FROM books
         INNER JOIN orders ON books.id = orders.book_id
-        INNER JOIN users ON users.id = orders.user_id";
+        INNER JOIN users ON users.id = orders.user_id
+        WHERE users.id = :user_id";
+
 
 $selectOrders = $conn->prepare($sql);
 $selectOrders->bindParam(':user_id', $user_id);
@@ -71,7 +73,7 @@ $ordering_data = $selectOrders->fetchAll();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list_movies.php">
+            <a class="nav-link" href="list_books.php">
               <span data-feather="file"></span>
               Books
             </a>
@@ -84,21 +86,6 @@ $ordering_data = $selectOrders->fetchAll();
             </a>
           </li>
 
-
-
-          <li class="nav-item">
-              <a class="nav-link" href="home.php">
-                <span data-feather="file"></span>
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="ordering.php">
-              <span ></span>
-              Orders
-            </a>
-          </li>
-          
         </ul>
 
 
