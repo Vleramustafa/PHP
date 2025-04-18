@@ -1,58 +1,49 @@
 <?php
- /*
-  We will include config.php for connection with database.
-  We will get datas from index.php file, and inster them into database when Sign up button is clicked in index.php file.
-  If any of session is empty we will get a message
-  */
+include_once('config.php');
 
-	include_once('config.php');
+if (isset($_POST['submit'])) {
+    $emri = trim($_POST['emri']);
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-	if(isset($_POST['submit']))
-	{
+    // Check for empty fields
+    if (empty($emri) || empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
+        echo "You have not filled in all the fields.";
+        exit;
+    }
 
-		$emri = $_POST['emri'];
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$surname = $_POST['surname'];
+    // Check if passwords match
+    if ($password !== $confirm_password) {
+        echo "Passwords do not match.";
+        exit;
+    }
 
-		$tempPass = $_POST['password'];
-		$password = password_hash($tempPass, PASSWORD_DEFAULT);
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+    // Optional: Check if email or username already exists
+    $checkUser = $conn->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
+    $checkUser->execute(['username' => $username, 'email' => $email]);
+    if ($checkUser->rowCount() > 0) {
+        echo "Username or email already taken.";
+        exit;
+    }
 
+    // Insert new user
+    $sql = "INSERT INTO users (emri, username, email, password) VALUES (:emri, :username, :email, :password)";
+    $insertSql = $conn->prepare($sql);
+    $insertSql->bindParam(':emri', $emri);
+    $insertSql->bindParam(':username', $username);
+    $insertSql->bindParam(':email', $email);
+    $insertSql->bindParam(':password', $hashedPassword);
 
-		$tempConfirm = $_POST['confirm_password'];
-		$confirm_password = password_hash($tempConfirm, PASSWORD_DEFAULT);
-
-
-		if(empty($emri) || empty($username) || empty($surname) || empty($email) || empty($password) || empty($confirm_password))
-		{
-			echo "You have not filled in all the fields.";
-		}
-		else
-		{
-
-			$sql = "INSERT INTO users(emri,username,email,surname,password, confirm_password) VALUES (:emri, :username, :email,:surname, :password, :confirm_password)";
-
-			$insertSql = $conn->prepare($sql);
-			
-
-			$insertSql->bindParam(':emri', $emri);
-			$insertSql->bindParam(':username', $username);
-			$insertSql->bindParam(':surname', $surname);
-			$insertSql->bindParam(':email', $email);
-			$insertSql->bindParam(':password', $password);
-			$insertSql->bindParam(':confirm_password', $confirm_password);
-
-			$insertSql->execute();
-
-			header("Location: login.php");
-
-
-		}
-
-
-
-	}
-
-
+    if ($insertSql->execute()) {
+        header("Location: login.php");
+        exit;
+    } else {
+        echo "Error occurred during registration.";
+    }
+}
 ?>

@@ -51,19 +51,19 @@ $user_data = $selectUser->fetch();
           </div>
           <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" placeholder="gymEquipment_name" name="gymEquipment_name" value="<?php echo $user_data['gymEquipment_name']; ?>">
-            <label for="floatingInput">Movie Name</label>
+            <label for="floatingInput">Name</label>
           </div>
           <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" placeholder="Movie Description" name="gymEquipment_desc" value="<?php echo $user_data['gymEquipment_desc']; ?>">
-            <label for="floatingInput">Movie Description</label>
+            <label for="floatingInput"> Description</label>
           </div>
           <div class="form-floating">
             <input type="number" class="form-control" id="floatingInput" placeholder="Movie Rating" name="gymEquipment_rating" value="<?php echo $user_data['gymEquipment_rating']; ?>">
-            <label for="floatingInput">Movie Rating</label>
+            <label for="floatingInput">Rating</label>
           </div>
           <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" placeholder="Movie Image" name="gymEquipment_image" value="<?php echo $user_data['gymEquipment_image']; ?>">
-            <label for="floatingInput">Movie Image</label>
+            <label for="floatingInput">Image</label>
           </div>
           <br>
           <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit1">Update</button>

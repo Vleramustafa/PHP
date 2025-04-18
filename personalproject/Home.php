@@ -1,118 +1,124 @@
 <?php
-include('config.php')
+include_once('config.php');
+
+$sql="SELECT * FROM gymequipment";
+$selectGymEquipment=$conn->prepare($sql);
+$selectGymEquipment->execute();
+$GymEquipment_data=$selectGymEquipment->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,128L0,160L1440,160L1440,0L0,0L0,0Z"></path></svg>
-<head>
-    <img id="logo" src="images/logo.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" contenEGISt="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <a id="registerbutton" href="login.php">REGISTRATION</a>
-        <a id="olympia" href="Home.php">OLYMPIA</a>
-        <a id="slogan" href="aboutus.php">-FITNESS DONE RIGHT-</a>
-    
-</head>
-<body>
+ <html>
+ <head>
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#7952b3">
+ </head>
+ <body>
 
-</body>
-<svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#273036" fill-opacity="1" d="M0,64L0,96L1440,96L1440,320L0,320L0,320Z"></path></svg>
-</html>
-<style>
-    body{
-   margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	background-color:white;
-  background-size: cover;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: bold;
+ <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-}
-.main{
-	width: 350px;
-	height: 500px;
-	background: white;
-	overflow: hidden;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-	border-radius: 10px;
-	box-shadow: 5px 20px 50px #000;
-}
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Album</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <a href="dashboard.php"><span class="navbar-toggler-icon"></span></a>
+      </button>
+    </div>
+  </div>
+</header>
 
-#svg{
-	position: absolute;
-	bottom: 10px;
-}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Album example</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-#svg2{
-	position:absolute;
-	top:10px
-}
+  <div class="album py-5 bg-light">
+    <div class="container">
 
-#logo{
- height: 125px;
- width: 125px;
-position: absolute;
-top:15px;
-border-radius:35px;
-background-color:#273036;
-border-style:solid;
-color:white;
-}
 
-#registerbutton{
-	position:absolute;
-	top:60px;
-	right:150px;
-	color:#fff;
-	text-decoration:none;
-	
-}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-#registerbutton:hover{
-color:#6495ed;
-transition: ease-in 0.3s;
-transform: scale(1.2);
-}
 
-#olympia{
-	position: absolute;
-	top:150px;
-    font-size: xx-large;
-	color:#fff;
-	text-decoration:none;
-	cursor:default;
-}
+        <?php foreach ($GymEquipment_data as $GymEquipment_data) { ?>
 
-#olympia:hover{
-color:#6495ed;
-transition: ease-in 0.3s;
-transform: scale(1.1);
-}
 
-#slogan{
-	position:absolute;
-	top:60px;
-	left:150px;
-	color:#fff;
-	text-decoration:none;
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: lighter;
-    font-style: italic;
+        <div class="col">
+          <div class="card shadow-sm">
+
+
+            <img src=<?php echo $GymEquipment_data['gymEquipment_image'];  ?> height="350">
+
+
+            <div class="card-body">
+
+            <h4><?php echo $GymEquipment_data['gymEquipment_name']; ?></h4>
+              <p class="card-text"><?php echo $GymEquipment_data['gymEquipment_desc']; ?></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="details.php?id=<?php echo $GymEquipment_data['id']; ?>"  class="btn btn-sm btn-outline-secondary" >View</a>
+                  <a href="edit.php?id=<?php echo $GymEquipment_data['id']; ?>"  class="btn btn-sm btn-outline-secondary">Edit</a>
+                </div>
+                <small class="text-muted">Rating: <?php echo $GymEquipment_data['gymEquipment_rating']; ?></small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <?php } ?>
+   
+       
+
+
+        
+      </div>
+    </div>
+  </div>
+
+
   
-}
-
-#slogan:hover{
-	color:#6495ed;
-transition: ease-in 0.3s;
-transform: scale(1.1);
-}
 
 
 
-</style>
+ </body>
+ </html>

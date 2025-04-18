@@ -70,10 +70,7 @@
       <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
       <label for="floatingInput">Username</label>
     </div>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="Surname" name="surname">
-      <label for="floatingInput">Surname</label>
-    </div>
+
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email">
       <label for="floatingInput">Email</label>

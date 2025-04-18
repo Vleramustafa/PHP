@@ -13,8 +13,8 @@ if(isset($_POST['submit'])){
     if(empty($username) || empty($password)){
         echo "Please fill out all the fields";
     }else{
-        $sql="SELECT id,emri,username,surname,password FROM users WHERE username=:username";
-    
+        $sql="SELECT id,emri,username,password,email FROM users WHERE username=:username";
+
         $selectUser=$conn->prepare($sql);
     $selectUser->bindParam(":username",$username);
   $selectUser->execute();
@@ -27,9 +27,9 @@ if(isset($_POST['submit'])){
     $_SESSION['id']=$data['id'];
     $_SESSION['username']=$data['username'];
     $_SESSION['emri']=$data['emri'];
-    $_SESSION['surname']=$data['surname'];
-    $_SESSION['email']=$data['email'];
    
+    $_SESSION['email']=$data['email'];
+
 
     header('Location:dashboard.php');
   }else{
