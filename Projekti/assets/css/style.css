@@ -1,0 +1,237 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.dark {
+    background-color: #2e2e2e;
+    color: #f4f4f4;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-top: 20px;
+    transition: font-size 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.3s ease;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.8rem;
+    transition: font-size 0.3s ease;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(180deg);
+}
+
+/* Calendar */
+#calendar {
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.fc .fc-daygrid-event {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.fc .fc-daygrid-event:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.fc .fc-daygrid-event:active {
+    transform: scale(0.98);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(1.2);
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+}
+
+.modal input,
+.modal textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.modal input:focus,
+.modal textarea:focus {
+    border-color: #007bff;
+}
+
+.modal .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal .btn {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal .btn.cancel {
+    background-color: #e0e0e0;
+}
+
+.modal .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.modal .btn.cancel:hover {
+    background-color: #ccc;
+    transform: scale(1.05);
+}
+
+/* Animating Modal On Opening */
+@keyframes modalFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .logo {
+        font-size: 1.6rem;
+    }
+
+    .navbar .nav-links {
+        margin-top: 10px;
+    }
+
+    .theme-toggle {
+        margin-top: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .modal form {
+        width: 90%;
+    }
+
+    .theme-toggle {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .navbar .logo {
+        font-size: 1.4rem;
+    }
+
+    .theme-toggle {
+        font-size: 1.5rem;
+    }
+
+    .modal input,
+    .modal textarea {
+        font-size: 0.9rem;
+    }
+}
