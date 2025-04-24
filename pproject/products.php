@@ -248,13 +248,8 @@ $conn->close();
         <h2>Our Products</h2>
         
 
-        <!-- Filter Section -->
-        <div class="filter-section">
-            <label for="priceFilter">Filter by Price: </label>
-            <input type="number" id="priceFilter" placeholder="Max Price">
-            <button onclick="filterProducts()">Apply Filter</button>
-        </div>
-        <h2>Products</h2>
+      
+       
         <div class="products" id="productContainer">
     <div class="product">
         <img src="img/h.png" alt="Highlighter">

@@ -2,32 +2,26 @@
 session_start();
 include_once('config.php');
 
-// // Redirect if not logged in
-// if (empty($_SESSION['username'])) {
-//     header('Location: login.php');
-//     exit();
-// }
+// Check if the user is an admin
+if ($_SESSION['role'] !== 'admin') {
+    header('Location: dashboard.php');  // Redirect to regular dashboard if not an admin
+    exit();
+}
 
-// User session info
-// $username = $_SESSION['username'];
-// $isAdmin = $_SESSION['is_admin'] ?? false;
-// $role = $isAdmin ? 'Admin' : 'User';
-
-// Get all users (only needed for admin)
+// Your existing code here for fetching users, products, etc.
 $users_data = [];
 $products_data = [];
-// if ($isAdmin) {
-    $sql = "SELECT * FROM users";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $users_data = $stmt->fetchAll();
 
-    // Fetch products
-    $sqlProducts = "SELECT * FROM products";
-    $stmtProducts = $conn->prepare($sqlProducts);
-    $stmtProducts->execute();
-    $products_data = $stmtProducts->fetchAll();
-//}
+$sql = "SELECT * FROM users";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$users_data = $stmt->fetchAll();
+
+// Fetch products
+$sqlProducts = "SELECT * FROM products";
+$stmtProducts = $conn->prepare($sqlProducts);
+$stmtProducts->execute();
+$products_data = $stmtProducts->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -53,28 +47,22 @@ $products_data = [];
     <nav>
         <a href="index.php">Home</a>
         <a href="products.php">Products</a>
-        <!-- <?php if ($_SESSION['is_admin']): ?>
-            <a href="admin.php">Admin Panel</a>
-        <?php endif; ?> -->
+        <a href="admin.php">Admin Panel</a>  <!-- Admin link, if required -->
         <a href="logout.php">Logout</a>
     </nav>
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar Navigation -->
-        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="pt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="pt-3">
+                </div>
+            </nav>
+
+            <!-- Main Dashboard Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
+                <h1 class="h2">Admin Dashboard</h1>
                 
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Main Dashboard Content -->
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
-            <h1 class="h2">Dashboard</h1>
-            <!-- <p class="lead">You are logged in as <strong><?php echo htmlspecialchars($role); ?></strong>.</p> -->
-
-            <!-- <?php if ($isAdmin): ?> -->
                 <!-- Admin - User Management Table -->
                 <h2 class="mt-5">Manage Users</h2>
                 <div class="table-responsive">
@@ -142,14 +130,12 @@ $products_data = [];
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Button to Add New Product -->
                             <tr>
                                 <td colspan="8" class="text-center">
                                     <a href="addProduct.php" class="btn btn-success btn-sm">Add New Product</a>
                                 </td>
                             </tr>
 
-                            <!-- Existing Products -->
                             <?php foreach ($products_data as $product): ?>
                                 <tr>
                                     <td><?= $product['id']; ?></td>
@@ -157,7 +143,7 @@ $products_data = [];
                                     <td><?= htmlspecialchars($product['product_quality']); ?></td>
                                     <td><?= htmlspecialchars($product['product_rating']); ?></td>
                                     <td><img src="<?= htmlspecialchars($product['product_image']); ?>" alt="Product Image" width="50"></td>
-                                    <td>–</td> <!-- No Add button for existing items -->
+                                    <td>–</td>
                                     <td><a href="edit.php?id=<?= $product['id']; ?>" class="btn btn-warning btn-sm">Update</a></td>
                                     <td>
                                         <a href="delete.php?id=<?= $product['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
@@ -167,62 +153,10 @@ $products_data = [];
                         </tbody>
                     </table>
                 </div>
-
-                <?php else: ?>
-<!-- Regular User Content -->
-<div class="alert alert-info">
-    As a regular user, you can view and book products from the Products page.
-</div>
-
-<!-- Product List for Regular Users -->
-<h2 class="mt-4">Available Products</h2>
-<div class="table-responsive">
-<table class="table table-bordered table-sm">
-<thead>
-<tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Quality</th>
-    <th>Rating</th>
-    <th>Image</th>
-    <th>Add</th>
-    <th>Update</th>
-    <th>Delete</th>
-</tr>
-</thead>
-<tbody>
-
-<!-- Add Product Row -->
- <a href="products.php" class="btn btn-primary btn-sm">Add</a>
-
-<!-- Existing Products -->
-<?php foreach ($products_data as $product): ?>
-    <tr>
-        <td><?= $product['id']; ?></td>
-        <td><?= htmlspecialchars($product['product_name']); ?></td>
-        <td><?= htmlspecialchars($product['product_quality']); ?></td>
-        <td><?= htmlspecialchars($product['product_rating']); ?></td>
-        <td><img src="<?= htmlspecialchars($product['product_image']); ?>" alt="Product Image" width="50"></td>
-        <td>–</td> <!-- Add not needed for existing -->
-        <td><a href="edit.php?id=<?= $product['id']; ?>">Edit</a></td>
-        <td>
-            <a href="delete.php?id=<?= $product['id']; ?>" onclick="return confirm('Are you sure?');">
-                Delete
-            </a>
-        </td>
-    </tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-
-</div>
-<?php endif; ?>
-
-        </main>
+            </main>
+        </div>
     </div>
-</div>
 
-<!-- Bootstrap Bundle JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
