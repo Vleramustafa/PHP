@@ -128,60 +128,94 @@ $products_data = [];
                 <!-- Admin - Product Table -->
                 <h2 class="mt-5">Manage Products</h2>
                 <div class="table-responsive">
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Quality</th>
+                                <th>Rating</th>
+                                <th>Image</th>
+                                <th>Add</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Button to Add New Product -->
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <a href="addProduct.php" class="btn btn-success btn-sm">Add New Product</a>
+                                </td>
+                            </tr>
 
+                            <!-- Existing Products -->
+                            <?php foreach ($products_data as $product): ?>
+                                <tr>
+                                    <td><?= $product['id']; ?></td>
+                                    <td><?= htmlspecialchars($product['product_name']); ?></td>
+                                    <td><?= htmlspecialchars($product['product_quality']); ?></td>
+                                    <td><?= htmlspecialchars($product['product_rating']); ?></td>
+                                    <td><img src="<?= htmlspecialchars($product['product_image']); ?>" alt="Product Image" width="50"></td>
+                                    <td>–</td> <!-- No Add button for existing items -->
+                                    <td><a href="edit.php?id=<?= $product['id']; ?>" class="btn btn-warning btn-sm">Update</a></td>
+                                    <td>
+                                        <a href="delete.php?id=<?= $product['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
 
                 <?php else: ?>
-    <!-- Regular User Content -->
-    <div class="alert alert-info">
-        As a regular user, you can view and book products from the Products page.
-    </div>
+<!-- Regular User Content -->
+<div class="alert alert-info">
+    As a regular user, you can view and book products from the Products page.
+</div>
 
-    <!-- Product List for Regular Users -->
-    <h2 class="mt-4">Available Products</h2>
-    <div class="table-responsive">
-    <table class="table table-bordered table-sm">
-    <thead>
+<!-- Product List for Regular Users -->
+<h2 class="mt-4">Available Products</h2>
+<div class="table-responsive">
+<table class="table table-bordered table-sm">
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Quality</th>
+    <th>Rating</th>
+    <th>Image</th>
+    <th>Add</th>
+    <th>Update</th>
+    <th>Delete</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- Add Product Row -->
+ <a href="products.php" class="btn btn-primary btn-sm">Add</a>
+
+<!-- Existing Products -->
+<?php foreach ($products_data as $product): ?>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Quality</th>
-        <th>Rating</th>
-        <th>Image</th>
-        <th>Add</th>
-        <th>Update</th>
-        <th>Delete</th>
+        <td><?= $product['id']; ?></td>
+        <td><?= htmlspecialchars($product['product_name']); ?></td>
+        <td><?= htmlspecialchars($product['product_quality']); ?></td>
+        <td><?= htmlspecialchars($product['product_rating']); ?></td>
+        <td><img src="<?= htmlspecialchars($product['product_image']); ?>" alt="Product Image" width="50"></td>
+        <td>–</td> <!-- Add not needed for existing -->
+        <td><a href="edit.php?id=<?= $product['id']; ?>">Edit</a></td>
+        <td>
+            <a href="delete.php?id=<?= $product['id']; ?>" onclick="return confirm('Are you sure?');">
+                Delete
+            </a>
+        </td>
     </tr>
-    </thead>
-    <tbody>
-
-    <!-- Add Product Row -->
-     <a href="products.php" class="btn btn-primary btn-sm">Add</a>
- 
-
-    <!-- Existing Products -->
-    <?php foreach ($products_data as $product): ?>
-        <tr>
-            <td><?= $product['id']; ?></td>
-            <td><?= htmlspecialchars($product['product_name']); ?></td>
-            <td><?= htmlspecialchars($product['product_quality']); ?></td>
-            <td><?= htmlspecialchars($product['product_rating']); ?></td>
-            <td><img src="<?= htmlspecialchars($product['product_image']); ?>" alt="Product Image" width="50"></td>
-
-            <td>–</td> <!-- Add not needed for existing -->
-            <td><a href="edit.php?id=<?= $product['id']; ?>">Edit</a></td>
-            <td>
-                <a href="delete.php?id=<?= $product['id']; ?>" onclick="return confirm('Are you sure?');">
-                    Delete
-                </a>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
+<?php endforeach; ?>
+</tbody>
 </table>
 
-
-    </div>
+</div>
 <?php endif; ?>
 
         </main>
