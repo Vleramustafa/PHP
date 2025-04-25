@@ -194,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <header>
     <div class="container">
-        <img src="menuifatri_files/logo.jpg" alt="Logo Casa Mia" class="logo">
+        <img src="logo.jpg" alt="Logo Casa Mia" class="logo">
         <h1>Casa Mia</h1>
         <nav>
             <a href="#home">Kryefaqja</a>
@@ -217,15 +217,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Menu </h2>
         <div class="menu-items">
             <div class="menu-item">
-                <img src="menuifatri_files/menuiftari.jpg" alt="Pjata 1">
+                <img src="ofertaditore.jpg" alt="Pjata 1">
                 <h3>Oferta Ditore</h3>
             </div>
             <div class="menu-item">
-                <img src="menuifatri_files/menuiftari1.jpg" alt="Pjata 4">
+                <img src="tradicionale.jpg" alt="Pjata 4">
                 <h3>Menu Tradicionale</h3>
             </div>
             <div class="menu-item">
-                <img src="menuifatri_files/menuiftari2.jpg" alt="Pjata 5">
+                <img src="pergjithshme.jpg" alt="Pjata 5">
                 <h3>Menu e Pergjithshme</h3>
             </div>
         </div>
