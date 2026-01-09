@@ -25,6 +25,5 @@ CREATE TABLE orders (
     book_id INT(11) NOT NULL,
     quantity INT(11) NOT NULL,
     order_date VARCHAR(255) NOT NULL,
-    total_price VARCHAR(255) NOT NULL,
     is_approved VARCHAR(255) NOT NULL
 );
